@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables & secrets
+.env
+.env.*
+*.env
+*.local
+
+# Database & Storage
+*.sqlite3
+*.db
+*.log
+
+# Build & Dist
+dist/
+build/
+.cache/
+
+# Local Windows launcher scripts & scratch files
+launch.bat
+launch.ps1
+launch.vbs
+serve.ps1
+*.py
+*.pyc
+__pycache__/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.bak
