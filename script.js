@@ -1189,7 +1189,7 @@
     initPixelatedScrollTransition();
 
     // Initialize 1:1 Curtis Nguyen (https://curtisdesignr.me/) Pixel Box Sweep Reveal
-    initCurtisWorkPixelEffect();
+    // initCurtisWorkPixelEffect(); // Disabled: clean static preview images
   };
 
   // =========================================================================
