@@ -1566,3 +1566,126 @@ html.lenis, html.lenis body {
   z-index: 10;
   border-radius: inherit;
 }
+
+
+/* ========================================================================= */
+/* ALEJANDRO HA PINNED PROJECTS SHOWCASE                                     */
+/* ========================================================================= */
+.projects-showcase-pinned {
+  background-color: #FFFFFF;
+  position: relative;
+  width: 100%;
+}
+
+.projects-sticky {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+.projects-list {
+  width: 100%;
+  position: relative;
+  will-change: transform;
+}
+
+.project-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: none;
+}
+
+.project-row {
+  position: relative;
+  z-index: 20;
+  background-color: #FFFFFF;
+  border-top: 1.5px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+}
+
+.project-row:hover {
+  background-color: #FAFAFA;
+}
+
+.project-number {
+  font-family: 'Space Grotesk', monospace;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+  white-space: nowrap;
+  letter-spacing: -0.04em;
+}
+
+.project-title {
+  font-family: 'Anton', 'Space Grotesk', sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 2.35rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: right;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.project-visual {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  flex: none;
+}
+
+@media (min-width: 992px) {
+  .project-description-col {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    width: 28%;
+    z-index: 10;
+  }
+
+  .project-image-wrap {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    width: 70%;
+    height: 100%;
+    z-index: 20;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 991px) {
+  .projects-sticky {
+    height: auto;
+    overflow: visible;
+  }
+  .project-visual {
+    flex-direction: column;
+    height: auto !important;
+  }
+  .project-image-wrap {
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    aspect-ratio: 16 / 9;
+    height: auto !important;
+    order: -1;
+  }
+  .project-description-col {
+    position: relative !important;
+    width: 100% !important;
+    padding: 2rem 1.5rem !important;
+    inset: auto !important;
+  }
+  .project-number {
+    font-size: 2rem;
+  }
+  .project-title {
+    font-size: 1.35rem;
+  }
+}

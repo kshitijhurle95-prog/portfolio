@@ -987,9 +987,9 @@
       
       <!-- Top Meta Bar -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 w-full border-b border-black/15 pb-3.5 mb-4 sm:mb-6">
-        <div class="inline-flex items-center gap-2 font-mono text-xs sm:text-sm text-black font-bold uppercase tracking-widest px-3.5 py-1 rounded-full bg-black text-[#81FF28] border border-black/30 shadow-xs">
+        <div class="inline-flex items-center gap-2 font-mono text-xs sm:text-sm font-black uppercase tracking-widest px-3.5 py-1 rounded-full bg-[#81FF28] text-black border border-black shadow-xs">
           <span class="w-2 h-2 rounded-full bg-black animate-pulse"></span>
-          <span>[ 03 / 05 ] &bull; SELECTED WORKS</span>
+          <span class="text-black font-extrabold">[ 03 / 06 ] &bull; SELECTED WORKS</span>
         </div>
         <span class="font-mono text-xs sm:text-sm text-black/70 uppercase tracking-widest font-bold">
           FULL-STACK &bull; AI ARCHITECTURES &bull; 2024–2026
@@ -1046,530 +1046,230 @@
 
     </div>
 
-    <!-- Alternating Projects Showcase List (Cards 01 to 04) -->
-    <div class="relative z-10 w-full max-w-[1360px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16">
-      <div id="projects-showcase-list" class="flex flex-col gap-8 sm:gap-10 lg:gap-12">
+    <!-- ========================================================================= -->
+    <!-- ALEJANDRO HA PINNED PROJECTS SHOWCASE ([01] TO [06])                      -->
+    <!-- 1:1 Parity with https://alejandroha.com/ Pinned Interactive Showcase       -->
+    <!-- ========================================================================= -->
+    <div id="portfolio-projects-showcase" class="projects-showcase-pinned relative w-full text-black mt-8 sm:mt-12">
+      <div class="projects-sticky w-full h-screen relative overflow-hidden bg-white">
+        <div class="projects-list w-full relative will-change-transform">
 
-          <!-- ==================== PROJECT 01: KITAI (Left: Info | Right: Preview) ==================== -->
-          <article id="project-card-0" class="project-showcase-card grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center p-5 sm:p-7 lg:p-8 xl:p-9" data-category="ai,opensource">
-            
-            <!-- Left Info Column -->
-            <div class="project-info-col lg:col-span-5 order-2 lg:order-1 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between gap-3 mb-3">
-                  <div class="flex items-center gap-3">
-                    <span class="font-mono text-3xl sm:text-4xl font-black text-[#81FF28]">01</span>
-                    <span class="w-8 h-[2px] bg-[#81FF28] rounded-full"></span>
-                    <span class="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#7c828d]">AI / EDTECH</span>
-                  </div>
-                  <span class="font-mono text-xs text-[#7c828d] font-semibold px-2.5 py-1 rounded-full bg-slate-100/90 border border-slate-200/80">2024 &bull; ACTIVE</span>
-                </div>
-
-                <h3 class="font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-[2.5rem] font-black text-[#FFFFFF] leading-tight mb-4 hover:text-[#81FF28] transition-colors">
-                  KitAi &mdash; Autonomous Multimodal AI Study Agent
-                </h3>
-
-                <p class="text-sm sm:text-base text-[#94a3b8] leading-relaxed mb-6">
-                  Autonomous multimodal educational agent engineered for self-directed technical learning. Features dynamic chain-of-thought reasoning, sandboxed code execution with self-healing compiler feedback loops, neural edge-TTS audio generation, and SuperMemo-2 spaced repetition memory.
-                </p>
-
-                <!-- Key Metrics Badges -->
-                <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Model Engine</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-[#81FF28]">Qwen 3.8/27B</div>
-                    <div class="font-mono text-[9px] text-emerald-600 font-bold">&lt;1s Latency</div>
-                  </div>
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Execution</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-[#000000]">100% Sandbox</div>
-                    <div class="font-mono text-[9px] text-emerald-600 font-bold">Self-Healing</div>
-                  </div>
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Audio Output</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-emerald-600">&lt;400ms</div>
-                    <div class="font-mono text-[9px] text-slate-500 font-bold">Edge-TTS</div>
-                  </div>
-                </div>
-
-                <!-- Technologies Used Section -->
-                <div class="mb-4 sm:mb-5">
-                  <div class="flex items-center gap-1.5 mb-2 font-mono text-[10.5px] font-bold text-[#7c828d] uppercase tracking-wider">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#81FF28]"></span>
-                    <span>Technologies Used</span>
-                  </div>
-                  <div class="flex flex-wrap gap-1.5 sm:gap-2">
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24"><path fill="#3776ab" d="M11.9 2c-3.1 0-5 1.5-5 3.5v2.6h5.2v.9H4.3C2.3 9 1 10.9 1 14c0 3.1 1.3 5 3.3 5H6v-2.7c0-1.9 1.5-3.3 3.3-3.3h5.4c1.9 0 3.3-1.5 3.3-3.3V5.5c0-2-1.9-3.5-6.1-3.5zm-2.4 1.8c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1z"/><path fill="#ffd438" d="M12.1 22c3.1 0 5-1.5 5-3.5v-2.6h-5.2v-.9h7.8c2 0 3.3-1.9 3.3-5 0-3.1-1.3-5-3.3-5H18v2.7c0 1.9-1.5 3.3-3.3 3.3H9.3c-1.9 0-3.3 1.5-3.3 3.3v4.2c0 2 1.9 3.5 6.1 3.5zm2.4-1.8c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"/></svg>
-                      <span>Python</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#009688"><path d="M12 2L3 9l9 13 9-13-9-7zm0 3.8L17.5 10H6.5L12 5.8zm-1 5.2h2v5.5l-2-2.9V11z"/></svg>
-                      <span>FastAPI</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#81FF28"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                      <span>Groq AI Cloud</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#a855f7"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2zm0 2.5c4.14 0 7.5 1.12 7.5 2s-3.36 2-7.5 2-7.5-1.12-7.5-2 3.36-2 7.5-2zm-7.5 4.88c1.67.92 4.38 1.42 7.5 1.42s5.83-.5 7.5-1.42V11c0 .88-3.36 2-7.5 2s-7.5-1.12-7.5-2zm0 4.5c1.67.92 4.38 1.42 7.5 1.42s5.83-.5 7.5-1.42V15.5c0 .88-3.36 2-7.5 2s-7.5-1.12-7.5-2zm0 4.5c1.67.92 4.38 1.42 7.5 1.42s5.83-.5 7.5-1.42V20c0 .88-3.36 2-7.5 2s-7.5-1.12-7.5-2z"/></svg>
-                      <span>ChromaDB</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#6366f1"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                      <span>Edge-TTS</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#003b57"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2zm4 8h-2V7h2v10z"/></svg>
-                      <span>SQLite</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action Links (Dummy) -->
-              <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-200/80">
-                <a href="javascript:void(0)" class="button-007 inline-flex items-center gap-2 group/btn cursor-pointer" title="Active local deployment (port 8000) &bull; Public preview coming soon">
-                  <span class="font-bold">View Project</span>
-                  <span class="text-xs transition-transform duration-300 group-hover/btn:translate-x-1">&rarr;</span>
-                </a>
-                <a href="javascript:void(0)" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/5 text-[#FFFFFF] font-mono text-xs font-bold border border-white/15 shadow-sm hover:border-[#81FF28]/60 hover:text-[#81FF28] transition-all duration-300 cursor-pointer" title="Private development repository &bull; Public release coming soon">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                  <span>Source Code</span>
-                </a>
-              </div>
+          <!-- ==================== PROJECT [01]: KITAI ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[01]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">KITAI &bull; AUTONOMOUS STUDY AGENT</h3>
             </div>
-
-            <!-- Right Preview Column -->
-            <div class="project-preview-col lg:col-span-7 order-1 lg:order-2 perspective-mockup-wrapper">
-              <div class="project-preview-frame relative rounded-2xl bg-[#121418] border border-white/10 p-4 sm:p-5 text-[#FFFFFF] overflow-visible">
-                <svg class="work-card-plus work-card-plus-tl" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-tr" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-br" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-bl" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <!-- Mac Chrome Bar -->
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-xs font-mono">
-                  <div class="flex items-center gap-1.5">
-                    <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
-                  </div>
-                  <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-[11px] font-mono flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>kitai.local:8000/study</span>
-                  </div>
-                  <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">● Agent Active</span>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">AI SYSTEMS &bull; MULTIMODAL REASONING</span>
+                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
+                  Autonomous self-learning multimodal AI study agent featuring verified runtime code execution, vision-driven whiteboard reasoning, dynamic chain-of-thought feedback loops, and algorithmic spaced repetition.
+                </p>
+                <div class="flex items-center gap-3">
+                  <a href="https://github.com/kshitijhurle95-prog/KitAi#readme" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>VIEW PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/KitAi" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
                 </div>
-
-                <!-- Preview Image Frame with Real Screenshot -->
-                <div class="curtis-work-canvas-container relative w-full flex-1 min-h-[300px] sm:min-h-[340px] lg:min-h-[400px] rounded-xl overflow-hidden border border-white/10 bg-[#0a0c10] group/img flex flex-col">
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full overflow-hidden z-20" data-project-image-wrap="">
+                <div class="curtis-work-canvas-container relative w-full h-full bg-[#0a0c10] overflow-hidden flex flex-col group/img">
                   <span class="work-card-tag">CASE STUDY</span>
                   <img src="src/kitai_preview.png" alt="KitAi Autonomous Multimodal Study Agent Preview" class="w-full h-full flex-1 object-cover object-top filter brightness-[0.98] transition-transform duration-500" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-slate-300 pointer-events-none">
-                    <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-[#FFFFFF] font-bold flex items-center gap-1.5 shadow-sm">
-                      <span class="w-2 h-2 rounded-full bg-[#81FF28] animate-ping"></span>
-                      Autonomous Reasoning Loop
-                    </span>
-                    <span class="px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-emerald-400 border border-emerald-500/30 font-semibold shadow-sm">Local Port :8000</span>
-                  </div>
                 </div>
               </div>
             </div>
-          </article>
-
-          <!-- ==================== PROJECT 02: OPPORTUNITYHUB (Left: Preview | Right: Info) ==================== -->
-          <article class="project-showcase-card grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center p-5 sm:p-7 lg:p-8 xl:p-9" data-category="automation,careers">
-            
-            <!-- Left Preview Column (Alternated!) -->
-            <div class="project-preview-col lg:col-span-7 order-1 perspective-mockup-wrapper">
-              <div class="project-preview-frame relative rounded-2xl bg-[#111317] border border-white/10 p-4 sm:p-5 text-[#FFFFFF] overflow-visible">
-                <svg class="work-card-plus work-card-plus-tl" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-tr" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-br" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-bl" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <!-- Chrome Bar -->
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-xs font-mono">
-                  <div class="flex items-center gap-1.5">
-                    <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
-                  </div>
-                  <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-[11px] font-mono flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-                    <span>opportunityhub.local:5050/dashboard</span>
-                  </div>
-                  <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">● 12 Feeds Sync</span>
-                </div>
-
-                <!-- Preview Image Frame with Real Screenshot -->
-                <div class="curtis-work-canvas-container relative w-full flex-1 min-h-[300px] sm:min-h-[340px] lg:min-h-[400px] rounded-xl overflow-hidden border border-white/10 bg-[#0a0c10] group/img flex flex-col">
-                  <span class="work-card-tag">APP DESIGN</span>
-                  <img src="src/opportunityhub_preview.png" alt="OpportunityHub Multi-Platform Career Discovery Preview" class="w-full h-full flex-1 object-cover object-top filter brightness-[0.98] transition-transform duration-500" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-slate-300 pointer-events-none">
-                    <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-[#FFFFFF] font-bold flex items-center gap-1.5 shadow-sm">
-                      <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-                      12 Career Aggregators Verified
-                    </span>
-                    <span class="px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-blue-400 border border-blue-500/30 font-semibold shadow-sm">Local Port :5050</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Info Column (Alternated!) -->
-            <div class="project-info-col lg:col-span-5 order-2 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between gap-3 mb-3">
-                  <div class="flex items-center gap-3">
-                    <span class="font-mono text-3xl sm:text-4xl font-black text-[#81FF28]">02</span>
-                    <span class="w-8 h-[2px] bg-[#81FF28] rounded-full"></span>
-                    <span class="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#7c828d]">CAREER / AUTOMATION</span>
-                  </div>
-                  <span class="font-mono text-xs text-[#7c828d] font-semibold px-2.5 py-1 rounded-full bg-slate-100/90 border border-slate-200/80">2024 &bull; ACTIVE</span>
-                </div>
-
-                <h3 class="font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-[2.5rem] font-black text-[#FFFFFF] leading-tight mb-4 hover:text-[#81FF28] transition-colors">
-                  OpportunityHub &mdash; Career Discovery Engine
-                </h3>
-
-                <p class="text-sm sm:text-base text-[#94a3b8] leading-relaxed mb-6">
-                  Privacy-first career discovery aggregator and opportunity automation platform. Ingests, normalizes, and filters active engineering internships, hackathons, and research grants across 12 premier platforms with 1-click ATS resume injection and Obsidian markdown synchronization.
-                </p>
-
-                <!-- Key Metrics Badges -->
-                <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Platforms</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-[#81FF28]">12 Aggregators</div>
-                    <div class="font-mono text-[9px] text-emerald-600 font-bold">Devpost, YC, Unstop</div>
-                  </div>
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Health Check</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-[#000000]">100% Live</div>
-                    <div class="font-mono text-[9px] text-emerald-600 font-bold">No 404 Links</div>
-                  </div>
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Application</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-emerald-600">1-Click ATS</div>
-                    <div class="font-mono text-[9px] text-slate-500 font-bold">Instant Pipeline</div>
-                  </div>
-                </div>
-
-                <!-- Technologies Used Section -->
-                <div class="mb-4 sm:mb-5">
-                  <div class="flex items-center gap-1.5 mb-2 font-mono text-[10.5px] font-bold text-[#7c828d] uppercase tracking-wider">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#81FF28]"></span>
-                    <span>Technologies Used</span>
-                  </div>
-                  <div class="flex flex-wrap gap-1.5 sm:gap-2">
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#f7df1e"><path d="M3 3h18v18H3V3zm9.5 14.5c1.4 0 2.3-.7 2.8-1.5l-1.3-.8c-.3.5-.7.8-1.4.8-.8 0-1.4-.4-1.4-1.3v-4.2h-1.6v4.3c0 1.8 1.1 2.7 2.9 2.7zm5.5 0c1.7 0 2.8-.8 2.8-2.3 0-1.4-.9-2-2.1-2.4l-.5-.2c-.6-.2-.9-.4-.9-.8 0-.4.3-.7.9-.7.6 0 1 .3 1.2.7l1.3-.8c-.5-.9-1.3-1.4-2.5-1.4-1.6 0-2.6.9-2.6 2.2 0 1.3.8 1.9 2 2.3l.5.2c.7.2 1 .5 1 .9 0 .5-.4.8-1.1.8-.8 0-1.3-.4-1.6-.9l-1.4.8c.4 1 1.3 1.6 2.5 1.6z"/></svg>
-                      <span>Vanilla JS</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#5391fe"><path d="M2 4v16h20V4H2zm3 3l5 5-5 5-1.4-1.4L7.2 12 3.6 8.4 5 7zm14 11h-7v-2h7v2z"/></svg>
-                      <span>PowerShell REST</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#f97316"><path d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm4 4v10h2V7H9zm4 0v10h2V7h-2z"/></svg>
-                      <span>JSON Database</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#7c3aed"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9L4 7.2v9.6l8 4.2 8-4.2V7.2L12 11z"/></svg>
-                      <span>Obsidian Sync</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#06b6d4"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z"/></svg>
-                      <span>Tailwind CSS</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#10b981"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14.5h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                      <span>ATS Engine</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action Links (Dummy) -->
-              <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-200/80">
-                <a href="javascript:void(0)" class="button-007 inline-flex items-center gap-2 group/btn cursor-pointer" title="Active local deployment (port 5050) &bull; Public preview coming soon">
-                  <span class="font-bold">View Project</span>
-                  <span class="text-xs transition-transform duration-300 group-hover/btn:translate-x-1">&rarr;</span>
-                </a>
-                <a href="javascript:void(0)" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/5 text-[#FFFFFF] font-mono text-xs font-bold border border-white/15 shadow-sm hover:border-[#81FF28]/60 hover:text-[#81FF28] transition-all duration-300 cursor-pointer" title="Private development repository &bull; Public release coming soon">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                  <span>Source Code</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- ==================== PROJECT 03: NEBULA 2046 (Left: Info | Right: Preview) ==================== -->
-          <article class="project-showcase-card grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center p-5 sm:p-7 lg:p-8 xl:p-9" data-category="realtime,webrtc">
-            
-            <!-- Left Info Column -->
-            <div class="project-info-col lg:col-span-5 order-2 lg:order-1 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between gap-3 mb-3">
-                  <div class="flex items-center gap-3">
-                    <span class="font-mono text-3xl sm:text-4xl font-black text-[#81FF28]">03</span>
-                    <span class="w-8 h-[2px] bg-[#81FF28] rounded-full"></span>
-                    <span class="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#7c828d]">SPATIAL / WEBRTC</span>
-                  </div>
-                  <span class="font-mono text-xs text-[#7c828d] font-semibold px-2.5 py-1 rounded-full bg-slate-100/90 border border-slate-200/80">2024 &bull; PROD</span>
-                </div>
-
-                <h3 class="font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-[2.5rem] font-black text-[#FFFFFF] leading-tight mb-4 hover:text-[#81FF28] transition-colors">
-                  NEBULA 2046 &mdash; Spatial Messaging Mesh
-                </h3>
-
-                <p class="text-sm sm:text-base text-[#94a3b8] leading-relaxed mb-6">
-                  Futuristic real-time spatial communication platform engineered with React 18 and WebRTC. Features hardware-resilient P2P audio/video duplex conferencing with virtual synthetic stream fallback, low-latency Socket.IO mesh messaging, and interactive 3D spatial environments.
-                </p>
-
-                <!-- Key Metrics Badges -->
-                <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Mesh Sync</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-[#81FF28]">&lt;50 ms</div>
-                    <div class="font-mono text-[9px] text-emerald-600 font-bold">Socket.IO Duplex</div>
-                  </div>
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Conferencing</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-[#000000]">P2P WebRTC</div>
-                    <div class="font-mono text-[9px] text-emerald-600 font-bold">Virtual Fallback</div>
-                  </div>
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Interface</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-emerald-600">3D Spatial</div>
-                    <div class="font-mono text-[9px] text-slate-500 font-bold">React 18 + Vite</div>
-                  </div>
-                </div>
-
-                <!-- Technologies Used Section -->
-                <div class="mb-4 sm:mb-5">
-                  <div class="flex items-center gap-1.5 mb-2 font-mono text-[10.5px] font-bold text-[#7c828d] uppercase tracking-wider">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#81FF28]"></span>
-                    <span>Technologies Used</span>
-                  </div>
-                  <div class="flex flex-wrap gap-1.5 sm:gap-2">
-                    <span class="project-tech-badge">
-                      <svg class="text-[#00d8ff]" viewBox="-11.5 -10.23174 23 20.46348" fill="currentColor"><circle cx="0" cy="0" r="2.05" fill="#00d8ff"/><g stroke="#00d8ff" stroke-width="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
-                      <span>React 18</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#5fa04e"><path d="M12 2l9 5.2v10.4l-9 5.2-9-5.2V7.2L12 2zm0 2.3L4.8 8.5v7l7.2 4.2 7.2-4.2v-7L12 4.3z"/></svg>
-                      <span>Node.js</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#010101"><path d="M12 2L2 7l10 5 10-5-10-5zm0 8.5L4.5 7 12 3.5 19.5 7 12 10.5zm0 3L3 8.5v7l9 5 9-5v-7l-9 5z"/></svg>
-                      <span>Socket.IO</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#326ce5"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a7 7 0 110 14 7 7 0 010-14zm-1 3v4.59l3.7 3.7 1.42-1.42L13 11.58V8h-2z"/></svg>
-                      <span>WebRTC</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#000000"><path d="M12 2L1 21h22L12 2zm0 4.5L19 19H5L12 6.5z"/></svg>
-                      <span>Three.js</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#2d3748"><path d="M12 2L3 7v10l9 5 9-5V7l-9-5zm0 2.8l6.3 3.5L12 11.8 5.7 8.3 12 4.8zM5 9.8l6 3.3v6.7L5 16.5V9.8zm8 10v-6.7l6-3.3v6.7l-6 3.3z"/></svg>
-                      <span>Prisma</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action Links (Dummy) -->
-              <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-200/80">
-                <a href="javascript:void(0)" class="button-007 inline-flex items-center gap-2 group/btn cursor-pointer" title="Active local deployment (port 3000) &bull; Public preview coming soon">
-                  <span class="font-bold">View Project</span>
-                  <span class="text-xs transition-transform duration-300 group-hover/btn:translate-x-1">&rarr;</span>
-                </a>
-                <a href="javascript:void(0)" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/5 text-[#FFFFFF] font-mono text-xs font-bold border border-white/15 shadow-sm hover:border-[#81FF28]/60 hover:text-[#81FF28] transition-all duration-300 cursor-pointer" title="Private development repository &bull; Public release coming soon">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                  <span>Source Code</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Right Preview Column -->
-            <div class="project-preview-col lg:col-span-7 order-1 lg:order-2 perspective-mockup-wrapper">
-              <div class="project-preview-frame relative rounded-2xl bg-[#0e1014] border border-white/10 p-4 sm:p-5 text-[#FFFFFF] overflow-visible">
-                <svg class="work-card-plus work-card-plus-tl" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-tr" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-br" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-bl" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <!-- Mac Chrome Bar -->
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-xs font-mono">
-                  <div class="flex items-center gap-1.5">
-                    <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
-                  </div>
-                  <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-[11px] font-mono flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                    <span>nebula.spatial:3000/mesh</span>
-                  </div>
-                  <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-wider">● Mesh Online</span>
-                </div>
-
-                <!-- Preview Image Frame with Real Screenshot -->
-                <div class="curtis-work-canvas-container relative w-full flex-1 min-h-[300px] sm:min-h-[340px] lg:min-h-[400px] rounded-xl overflow-hidden border border-white/10 bg-[#0a0c10] group/img flex flex-col">
-                  <span class="work-card-tag">WEB DESIGN</span>
-                  <img src="src/nebula_preview.png" alt="NEBULA 2046 Spatial Real-Time Messaging Preview" class="w-full h-full flex-1 object-cover object-top filter brightness-[0.98] transition-transform duration-500" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-slate-300 pointer-events-none">
-                    <span class="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-[#FFFFFF] font-bold flex items-center gap-1.5 shadow-sm">
-                      <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                      Spatial Audio &amp; Video Mesh
-                    </span>
-                    <span class="px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-cyan-300 border border-cyan-500/30 font-semibold shadow-sm">Local Port :3000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- ==================== PROJECT 04: PORTFOLIO V2.0 (Left: Preview | Right: Info) ==================== -->
-          <article class="project-showcase-card grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center p-5 sm:p-7 lg:p-8 xl:p-9" data-category="web,opensource">
-            
-            <!-- Left Preview Column (Alternated!) -->
-            <div class="project-preview-col lg:col-span-7 order-1 perspective-mockup-wrapper">
-              <div class="project-preview-frame relative rounded-2xl bg-[#121418] border border-white/10 p-4 sm:p-5 text-[#FFFFFF] overflow-visible">
-                <svg class="work-card-plus work-card-plus-tl" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-tr" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-br" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <svg class="work-card-plus work-card-plus-bl" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M4.5 3.5H7V4.5H4.5V7H3.5V4.5H1V3.5H3.5V1H4.5V3.5Z" fill="currentColor"/></svg>
-                <!-- Browser Chrome -->
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-xs font-mono">
-                  <div class="flex items-center gap-1.5">
-                    <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
-                  </div>
-                  <div class="text-slate-300 font-mono text-[11px] font-bold">&lt; KSHITIJ HURLE /&gt;</div>
-                  <span class="text-[10px] text-[#81FF28] font-bold uppercase tracking-wider">● 60 FPS Lenis</span>
-                </div>
-
-                <!-- Preview Image Frame with Real Screenshot -->
-                <div class="curtis-work-canvas-container relative w-full flex-1 min-h-[300px] sm:min-h-[340px] lg:min-h-[400px] rounded-xl overflow-hidden border border-white/10 bg-[#0a0c10] group/img flex flex-col">
-                  <span class="work-card-tag">CREATIVE WEB</span>
-                  <img src="src/about_center_composed.png" alt="Portfolio v2.0 Motion Lab Preview" class="w-full h-full flex-1 object-cover object-top filter brightness-[0.98] transition-transform duration-500" />
-                </div>
-              </div>
-            </div>
-
-            <!-- Right Info Column (Alternated!) -->
-            <div class="project-info-col lg:col-span-5 order-2 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between gap-3 mb-3">
-                  <div class="flex items-center gap-3">
-                    <span class="font-mono text-3xl sm:text-4xl font-black text-[#81FF28]">04</span>
-                    <span class="w-8 h-[2px] bg-[#81FF28] rounded-full"></span>
-                    <span class="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#7c828d]">CREATIVE WEB</span>
-                  </div>
-                  <span class="font-mono text-xs text-[#7c828d] font-semibold px-2.5 py-1 rounded-full bg-slate-100/90 border border-slate-200/80">2024 • LIVE</span>
-                </div>
-
-                <h3 class="font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-[2.5rem] font-black text-[#FFFFFF] leading-tight mb-4 hover:text-[#81FF28] transition-colors">
-                  Portfolio v2.0 &amp; Motion Lab
-                </h3>
-
-                <p class="text-sm sm:text-base text-[#94a3b8] leading-relaxed mb-6">
-                  Handcrafted developer portfolio engineered with GSAP timelines, Lenis smooth scrolling, synchronized dual-layer clipping transitions, and responsive Neumorphic UI design with zero heavy frameworks.
-                </p>
-
-                <!-- Key Metrics Badges -->
-                <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Lighthouse</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-[#81FF28]">100%</div>
-                    <div class="font-mono text-[9px] text-emerald-600 font-bold">Perf &amp; SEO</div>
-                  </div>
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Smooth Scroll</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-[#000000]">60 FPS</div>
-                    <div class="font-mono text-[9px] text-emerald-600 font-bold">Lenis V1.1</div>
-                  </div>
-                  <div class="p-2.5 sm:p-3 rounded-2xl bg-white/5 border border-white/10 shadow-xs text-center">
-                    <div class="font-mono text-[10px] text-[#7c828d] uppercase font-bold">Bloatware</div>
-                    <div class="font-mono text-base sm:text-lg font-black text-emerald-600">Zero</div>
-                    <div class="font-mono text-[9px] text-slate-500 font-bold">Vanilla JS</div>
-                  </div>
-                </div>
-
-                <!-- Technologies Used Section -->
-                <div class="mb-4 sm:mb-5">
-                  <div class="flex items-center gap-1.5 mb-2 font-mono text-[10.5px] font-bold text-[#7c828d] uppercase tracking-wider">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#81FF28]"></span>
-                    <span>Technologies Used</span>
-                  </div>
-                  <div class="flex flex-wrap gap-1.5 sm:gap-2">
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#f7df1e"><path d="M3 3h18v18H3V3zm9.5 14.5c1.4 0 2.3-.7 2.8-1.5l-1.3-.8c-.3.5-.7.8-1.4.8-.8 0-1.4-.4-1.4-1.3v-4.2h-1.6v4.3c0 1.8 1.1 2.7 2.9 2.7zm5.5 0c1.7 0 2.8-.8 2.8-2.3 0-1.4-.9-2-2.1-2.4l-.5-.2c-.6-.2-.9-.4-.9-.8 0-.4.3-.7.9-.7.6 0 1 .3 1.2.7l1.3-.8c-.5-.9-1.3-1.4-2.5-1.4-1.6 0-2.6.9-2.6 2.2 0 1.3.8 1.9 2 2.3l.5.2c.7.2 1 .5 1 .9 0 .5-.4.8-1.1.8-.8 0-1.3-.4-1.6-.9l-1.4.8c.4 1 1.3 1.6 2.5 1.6z"/></svg>
-                      <span>Vanilla JS</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#88ce02"><path d="M12 2L2 12l10 10 10-10L12 2zm0 3.5L18.5 12 12 18.5 5.5 12 12 5.5zM11 8v8l5-4-5-4z"/></svg>
-                      <span>GSAP 3</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#81FF28"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm5 4a1.5 1.5 0 00-1.5 1.5v3a1.5 1.5 0 003 0v-3A1.5 1.5 0 0012 6z"/></svg>
-                      <span>ScrollTrigger</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24"><path d="M3 17c3.5 0 5-10 9-10s5.5 10 9 10" stroke="#0ea5e9" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
-                      <span>Lenis</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#06b6d4"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z"/></svg>
-                      <span>Tailwind CSS</span>
-                    </span>
-                    <span class="project-tech-badge">
-                      <svg viewBox="0 0 24 24" fill="#e34f26"><path d="M12 2l8.5 3-1.3 13.5L12 22l-7.2-3.5L3.5 5 12 2zm0 3.2L6.1 7.2l.9 9.8 5 2.5 5-2.5.9-9.8L12 5.2z"/></svg>
-                      <span>HTML5 Canvas</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action Links -->
-              <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-200/80">
-                <a href="#hero" class="button-007 inline-flex items-center gap-2 group/btn">
-                  <span class="font-bold">Explore Site</span>
-                  <span class="text-xs transition-transform duration-300 group-hover/btn:translate-x-1">&rarr;</span>
-                </a>
-                <a href="https://github.com/kshitijhurle" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/5 text-[#FFFFFF] font-mono text-xs font-bold border border-white/15 shadow-sm hover:border-[#81FF28]/60 hover:text-[#81FF28] transition-all duration-300">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                  <span>Source Code</span>
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- ==================== BOTTOM TELEMETRY BAR ==================== -->
-        <div class="project-telemetry-bar w-full px-4 sm:px-6 flex items-center justify-between pt-8 sm:pt-12 border-t border-slate-300/70 text-xs font-mono tracking-wider mt-16 sm:mt-24">
-          <div class="text-[#7c828d] font-bold flex items-center gap-2">
-            <span class="text-[#000000]">04 CURATED RELEASES</span>
-            <span class="text-slate-400">•</span>
-            <span>100% OPEN SOURCE</span>
           </div>
-          <div class="hidden sm:block flex-1 h-[1px] bg-slate-300/80 mx-8"></div>
-          <a href="https://github.com/kshitijhurle" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#000000] hover:text-[#81FF28] font-bold transition-colors">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#81FF28] animate-pulse"></span>
-            <span>EXPLORE MORE REPOSITORIES ON GITHUB</span>
-            <span class="text-sm">&nearr;</span>
-          </a>
+
+          <!-- ==================== PROJECT [02]: OPPORTUNITYHUB ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[02]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">OPPORTUNITYHUB &bull; CAREER ENGINE</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">FULL-STACK &bull; 1-CLICK AUTOMATION</span>
+                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
+                  Personalized opportunity discovery dashboard and automated 1-click application engine aggregating active internships, hackathons, and fellowship tracks across 12 tier-1 platforms with algorithmic ATS scoring.
+                </p>
+                <div class="flex items-center gap-3">
+                  <a href="https://kshitijhurle95-prog.github.io/opportunity-hub/" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>LIVE DEMO</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/opportunity-hub" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full overflow-hidden z-20" data-project-image-wrap="">
+                <div class="curtis-work-canvas-container relative w-full h-full bg-[#0a0c10] overflow-hidden flex flex-col group/img">
+                  <span class="work-card-tag">APP PLATFORM</span>
+                  <img src="src/opportunityhub_preview.png" alt="OpportunityHub Multi-Platform Career Discovery Preview" class="w-full h-full flex-1 object-cover object-top filter brightness-[0.98] transition-transform duration-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== PROJECT [03]: ARCK SPATIAL CHAT ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[03]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">ARCK &bull; QUANTUM SPATIAL MESSAGING</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">REAL-TIME &bull; WEBRTC &bull; 3D AUDIO MESH</span>
+                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
+                  Next-generation spatial real-time messaging and telepresence platform engineered with low-latency WebRTC data channels, proximity audio falloff, and dynamic 3D room coordinates.
+                </p>
+                <div class="flex items-center gap-3">
+                  <a href="https://github.com/kshitijhurle95-prog/arck-spatial-chat#readme" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>VIEW PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/arck-spatial-chat" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full overflow-hidden z-20" data-project-image-wrap="">
+                <div class="curtis-work-canvas-container relative w-full h-full bg-[#0a0c10] overflow-hidden flex flex-col group/img">
+                  <span class="work-card-tag">SPATIAL MESH</span>
+                  <img src="src/nebula_preview.png" alt="ARCK Spatial Real-Time Messaging Preview" class="w-full h-full flex-1 object-cover object-top filter brightness-[0.98] transition-transform duration-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== PROJECT [04]: ATMOS WEATHER INTELLIGENCE ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[04]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">ATMOS &bull; WEATHER INTELLIGENCE</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">NEXT.JS 15 &bull; RADAR MAPS &bull; TELEMETRY</span>
+                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
+                  Modern atmospheric intelligence platform delivering hyper-local precision conditions, interactive 24-hour timeline scrubbing, multi-day radar mapping, and live air quality telemetry.
+                </p>
+                <div class="flex items-center gap-3">
+                  <a href="https://kshitijhurle95-prog.github.io/atmos-weather-intelligence/" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>LIVE DEMO</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/atmos-weather-intelligence" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full overflow-hidden z-20" data-project-image-wrap="">
+                <div class="curtis-work-canvas-container relative w-full h-full bg-[#0a0c10] overflow-hidden flex flex-col group/img">
+                  <span class="work-card-tag">INTELLIGENCE</span>
+                  <img src="src/atmos_preview.png" alt="Atmos Weather Intelligence Preview" class="w-full h-full flex-1 object-cover object-top filter brightness-[0.98] transition-transform duration-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== PROJECT [05]: PAYPULSE AI ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[05]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">PAYPULSE AI &bull; FINANCIAL WORKBENCH</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">GROQ LLAMA 3 &bull; PAYPAL SANDBOX &bull; AG GRID</span>
+                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
+                  Zero-dashboard conversational financial workbench and PayPal store manager integrating Groq Llama 3 for real-time natural language query execution, dispute arbitration, and automated order workflows.
+                </p>
+                <div class="flex items-center gap-3">
+                  <a href="https://github.com/kshitijhurle95-prog/paypulse-ai#readme" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>VIEW PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/paypulse-ai" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full overflow-hidden z-20" data-project-image-wrap="">
+                <div class="curtis-work-canvas-container relative w-full h-full bg-[#0a0c10] overflow-hidden flex flex-col group/img">
+                  <span class="work-card-tag">FINTECH AI</span>
+                  <img src="src/paypulse_preview.png" alt="PayPulse AI Store Manager Preview" class="w-full h-full flex-1 object-cover object-top filter brightness-[0.98] transition-transform duration-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== PROJECT [06]: PORTFOLIO V2.0 ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[06]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">PORTFOLIO V2.0 &bull; MOTION LAB</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">THREE.JS WEBGL &bull; GSAP KINETICS &bull; GLSL SHADERS</span>
+                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
+                  High-performance digital engineering portfolio featuring an interactive 3D WebGL Earth globe, dual-state magnetic cursor, Paul Kalkbrenner mosaic transitions, and Curtis Nguyen WebGL shaders.
+                </p>
+                <div class="flex items-center gap-3">
+                  <a href="https://kshitijhurle95-prog.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>LIVE DEMO</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/portfolio" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full overflow-hidden z-20" data-project-image-wrap="">
+                <div class="curtis-work-canvas-container relative w-full h-full bg-[#0a0c10] overflow-hidden flex flex-col group/img">
+                  <span class="work-card-tag">MOTION LAB</span>
+                  <img src="assets/screenshots/hero-preview.png" alt="Portfolio v2.0 Motion Lab Preview" class="w-full h-full flex-1 object-cover object-top filter brightness-[0.98] transition-transform duration-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-
       </div>
-    </section>
 
+      <!-- ==================== BOTTOM TELEMETRY BAR ==================== -->
+      <div class="project-telemetry-bar w-full px-6 sm:px-10 lg:px-14 flex items-center justify-between pt-8 sm:pt-12 border-t border-black/15 text-xs font-mono tracking-wider mt-12 sm:mt-16 bg-white">
+        <div class="text-[#000000] font-bold flex items-center gap-2">
+          <span class="text-[#000000]">06 CURATED RELEASES</span>
+          <span class="text-black/40">&bull;</span>
+          <span>100% OPEN SOURCE</span>
+        </div>
+        <div class="hidden sm:block flex-1 h-[1px] bg-black/15 mx-8"></div>
+        <a href="https://github.com/kshitijhurle95-prog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#000000] hover:text-[#81FF28] font-bold transition-colors">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#81FF28] animate-pulse"></span>
+          <span>EXPLORE MORE REPOSITORIES ON GITHUB</span>
+          <span class="text-sm">&nearr;</span>
+        </a>
+      </div>
+    </div>
     <!-- ---------------------------------------------------- -->
     <!-- SEQUENCE 5: CONTACT SECTION & INTEGRATED FOOTER      -->
     <!-- ---------------------------------------------------- -->

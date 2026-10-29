@@ -1182,63 +1182,8 @@
       );
     }
 
-    // Projects cards scroll-triggered entrance (appear on scroll only)
-    cards.forEach((card) => {
-      gsap.fromTo(
-        card,
-        { autoAlpha: 0, y: 70, scale: 0.96 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.85,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            once: true
-          }
-        }
-      );
-    });
-
-    // 3D Perspective mouse tilt on project preview cards
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      let tiltRaf = null;
-      cards.forEach((card) => {
-        const preview = card.querySelector('.project-preview-frame');
-        if (!preview) return;
-        let rect = null;
-
-        card.addEventListener('mouseenter', () => {
-          rect = card.getBoundingClientRect();
-        });
-
-        card.addEventListener('mousemove', (e) => {
-          if (!rect) rect = card.getBoundingClientRect();
-          if (tiltRaf) return;
-          tiltRaf = requestAnimationFrame(() => {
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -4.5;
-            const rotateY = ((x - centerX) / centerX) * 4.5;
-            preview.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) scale3d(1.015, 1.015, 1.015) translateZ(0)';
-            tiltRaf = null;
-          });
-        });
-
-        card.addEventListener('mouseleave', () => {
-          rect = null;
-          if (tiltRaf) {
-            cancelAnimationFrame(tiltRaf);
-            tiltRaf = null;
-          }
-          preview.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateZ(0)';
-        });
-      });
-    }
+    // Initialize Alejandro HA (https://alejandroha.com/) 1:1 Pinned Projects Showcase
+    initAlejandroProjectsScroll();
 
     // Initialize 1:1 Paul Kalkbrenner Pixelated Transition at Skills -> Projects Boundary
     initPixelatedScrollTransition();
@@ -1248,6 +1193,124 @@
   };
 
   // =========================================================================
+  // ALEJANDRO HA (https://alejandroha.com/) 1:1 PINNED SERVICES/PROJECTS SCROLL
+  // Dynamically stacks project rows, collapses previous visual height & width,
+  // and expands next project image while keeping header rows docked at the top.
+  // =========================================================================
+  function initAlejandroProjectsScroll() {
+    const container = document.getElementById('portfolio-projects-showcase');
+    if (!container) return;
+
+    const list = container.querySelector('.projects-list');
+    const items = gsap.utils.toArray(container.querySelectorAll('.project-item'));
+    if (!list || !items.length) return;
+
+    const data = items.map(item => ({
+      item: item,
+      row: item.querySelector('.project-row'),
+      visual: item.querySelector('.project-visual'),
+      desc: item.querySelector('.project-description-col'),
+      imageWrap: item.querySelector('.project-image-wrap'),
+      curtisContainer: item.querySelector('.curtis-work-canvas-container')
+    }));
+
+    if (data.some(d => !d.row || !d.visual || !d.imageWrap)) return;
+
+    const allEls = [
+      container,
+      list,
+      ...data.map(d => d.item),
+      ...data.map(d => d.visual),
+      ...data.map(d => d.imageWrap),
+      ...data.map(d => d.desc)
+    ];
+
+    const clearAll = () => {
+      gsap.set(allEls, {
+        clearProps: 'transform,height,width,left,top,zIndex,overflow,clipPath,webkitClipPath,opacity,visibility'
+      });
+    };
+
+    const mm = gsap.matchMedia();
+
+    mm.add('(min-width: 992px)', () => {
+      const calcHeights = () => {
+        data.forEach(({ row, visual }, i) => {
+          const prevRowH = i > 0 ? data[i - 1].row.offsetHeight : 0;
+          const targetH = window.innerHeight - row.offsetHeight - prevRowH;
+          gsap.set(visual, { height: Math.max(targetH, 0) });
+        });
+      };
+      calcHeights();
+
+      const ctx = gsap.context(() => {
+        gsap.set(list, { y: 0 });
+        data.forEach(({ visual, imageWrap }, i) => {
+          gsap.set(visual, { overflow: 'hidden' });
+          gsap.set(imageWrap, { left: '30%', width: i === 0 ? '70%' : '0%' });
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: 'top top',
+            end: () => '+=' + (window.innerHeight * (data.length - 0.2)),
+            scrub: 1.0,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+            onRefreshInit: calcHeights
+          }
+        });
+
+        data.slice(0, -1).forEach((curr, idx) => {
+          const nextIdx = idx + 1;
+          const next = data[nextIdx];
+
+          // 1. Current visual collapses its height
+          tl.to(curr.visual, { height: 0, duration: 1, ease: 'power1.inOut' }, idx);
+          // 2. Current image slides / shrinks away
+          tl.to(curr.imageWrap, { left: '100%', width: '0%', duration: 1, ease: 'power1.inOut' }, idx);
+          // 3. Next image expands into view
+          tl.to(next.imageWrap, {
+            left: '30%',
+            width: '70%',
+            duration: 1,
+            ease: 'power1.inOut',
+            onStart: () => {
+              if (next.curtisContainer && next.curtisContainer.__triggerPixelSweep) {
+                next.curtisContainer.__triggerPixelSweep();
+              }
+            }
+          }, idx);
+          // 4. Translate list up so header rows dock neatly at the top
+          tl.to(list, {
+            y: () => {
+              if (nextIdx < 2) return 0;
+              let accumulatedH = 0;
+              for (let k = 0; k <= nextIdx - 2; k++) {
+                accumulatedH += data[k].row.offsetHeight;
+              }
+              return -accumulatedH;
+            },
+            duration: 1,
+            ease: 'power1.inOut'
+          }, idx);
+        });
+      }, container);
+
+      return () => {
+        ctx.revert();
+        clearAll();
+      };
+    });
+
+    mm.add('(max-width: 991px)', () => {
+      clearAll();
+    });
+  }
+
+    // =========================================================================
   // CURTIS NGUYEN (https://curtisdesignr.me/) 1:1 SELECTED WORK PIXEL EFFECT
   // WebGL Shader: Jittered pixel grid sweep, neon band (#81FF28), progressive image sharpening
   // =========================================================================
@@ -1443,7 +1506,15 @@
       }
 
       // ScrollTrigger entrance: Curtis pixel sweep on each project card
-      const card = container.closest('.project-showcase-card');
+            const card = container.closest('.project-item') || container.closest('.project-showcase-card');
+      container.__triggerPixelSweep = () => {
+        gsap.fromTo(state, { progress: 0.0 }, {
+          progress: 1.0,
+          duration: 1.15,
+          ease: 'power2.out',
+          onUpdate: render
+        });
+      };
       if (card && typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.create({
           trigger: card,
