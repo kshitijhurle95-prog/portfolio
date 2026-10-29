@@ -1103,32 +1103,570 @@
               <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">KITAI &bull; AUTONOMOUS STUDY AGENT</h3>
             </div>
             <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
-              <div class="project-description-col w-full lg:w-[32%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
-                <!-- 1. First: Project Description (+3px font size, solid black, bold) -->
+              <div class="project-description-col w-full lg:w-[42%] max-w-[650px] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <!-- 1. First: Project Description (Wider text container, more words per line, solid black, bold) -->
+                <p class="project-desc-text text-[17px] sm:text-[19px] text-black font-semibold leading-relaxed mb-5">
+                  Autonomous self-learning multimodal AI study agent featuring verified runtime code execution, vision-driven whiteboard reasoning, dynamic chain-of-thought feedback loops, and algorithmic spaced repetition.
+                </p>
+
+                <!-- 2. Second: Technology Used in Single Line (Original Colorful Icons + Hover Names Tooltip) -->
+                <div class="project-tech-stack flex items-center gap-3 sm:gap-3.5 mb-6 text-black select-none flex-wrap sm:flex-nowrap">
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Python" aria-label="Python">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <defs>
+        <linearGradient id="py-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#387EB8"/>
+          <stop offset="100%" stop-color="#366994"/>
+        </linearGradient>
+        <linearGradient id="py-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFE873"/>
+          <stop offset="100%" stop-color="#FFD43B"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#py-blue)" d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.006 2.75h5.82v.825H3.852S0 5.787 0 11.932c0 6.14 3.398 5.925 3.398 5.925h2.03v-2.852s-.11-3.398 3.344-3.398h5.713v-.824H8.766s-3.344.054-3.344-3.344c0-3.398 2.96-3.29 2.96-3.29h9.09s3.07-.323 3.07 3.398v2.366h-1.666v-1.54s.108-1.882-1.882-1.882H11.97s-1.828-.054-1.828 1.828c0 1.882 1.56 1.828 1.828 1.828h5.658s3.452-.054 3.452 3.398c0 3.452-3.07 3.344-3.07 3.344h-2.04v.825h2.04s5.98-.38 5.98-6.033c0-5.654-4.893-5.71-4.893-5.71h-.806V2.656S18.38 0 11.914 0z"/>
+      <path fill="url(#py-yellow)" d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.006-2.75h-5.82v-.825h8.174S24 18.213 24 12.068c0-6.14-3.398-5.925-3.398-5.925h-2.03v2.852s.11 3.398-3.344 3.398H9.515v.824h5.719s3.344-.054 3.344 3.344c0 3.398-2.96 3.29-2.96 3.29H6.489s-3.07.323-3.07-3.398v-2.366h1.666v1.54s-.108 1.882 1.882 1.882h6.059s1.828.054 1.828-1.828c0-1.882-1.56-1.828-1.828-1.828H8.368s-3.452.054-3.452-3.398c0-3.452 3.07-3.344 3.07-3.344h2.04v-.825H7.986S2.006 8.351 2.006 14.004C2.006 19.658 6.9 19.714 6.9 19.714h.806v3.072S5.62 24 12.086 24z"/>
+      <circle cx="8.74" cy="2.474" r=".97" fill="#ffffff"/>
+      <circle cx="15.26" cy="21.526" r=".97" fill="#ffffff"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Python
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="TypeScript" aria-label="TypeScript">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <rect width="24" height="24" rx="3" fill="#3178C6"/>
+      <path fill="#ffffff" d="M14.7 17.6c.4.3.9.5 1.5.5.7 0 1.1-.3 1.1-.8 0-.5-.4-.7-1.3-1-1.3-.5-2.1-1.2-2.1-2.4 0-1.3 1.1-2.3 2.8-2.3.8 0 1.5.2 2 .5l-.4 1.2c-.4-.3-.9-.4-1.5-.4-.7 0-1.1.3-1.1.7 0 .5.4.7 1.4 1.1 1.4.5 2.1 1.2 2.1 2.4 0 1.5-1.2 2.4-3 2.4-1 0-1.8-.3-2.4-.7l.5-1.1zM6.8 13.1h2.5v7.3H11v-7.3h2.5v-1.3H6.8v1.3z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      TypeScript
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="React" aria-label="React">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(0 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(60 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(120 12 12)"/>
+      <circle cx="12" cy="12" r="1.8" fill="#61DAFB"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      React
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Next.js" aria-label="Next.js">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <circle cx="12" cy="12" r="12" fill="#000000"/>
+      <path fill="#ffffff" d="M17.5 17.5l-5.8-7.5v7.5H10V6.5h1.8l5.8 7.5V6.5h1.8v11h-1.9z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Next.js
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Tailwind CSS" aria-label="Tailwind CSS">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#38BDF8" d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Tailwind CSS
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Docker" aria-label="Docker">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#2496ED" d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185zm0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186zm-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.186.186.186zm5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185zm-2.929 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186h-2.119a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185zm-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H5.136a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185zm-2.928 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H2.208a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185zm21.652 1.438c-.402-.262-.973-.374-1.637-.179-.244.072-.513.15-.79.234-.438-1.58-1.579-2.73-3.037-3.21-.247-.08-.507-.13-.775-.15-.17-.01-.34-.01-.51 0a4.93 4.93 0 00-1.83.56c-.06.03-.11.07-.17.1l-.11.08c-.02.01-.03.02-.05.04v.01l-.01.01a4.9 4.9 0 00-.63.63H.774a.774.774 0 00-.774.774c0 .324.08.636.23.916C1.19 18.067 4.93 20.4 9.94 20.4c6.88 0 11.89-4.24 13.04-8.83.17-.67.12-1.3-.22-1.68z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Docker
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 3. Third: Two Action Buttons (View and GitHub) -->
+                <div class="project-actions flex items-center gap-3">
+                  <a href="https://github.com/kshitijhurle95-prog/KitAi#readme" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>VIEW PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/KitAi" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[58%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
+              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
+                <img src="src/kitai_preview.png" alt="KitAi Autonomous Multimodal Study Agent Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ==================== PROJECT [02]: OPPORTUNITYHUB ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[02]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">OPPORTUNITYHUB &bull; CAREER ENGINE</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[42%] max-w-[650px] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <!-- 1. First: Project Description (Wider text container, more words per line, solid black, bold) -->
+                <p class="project-desc-text text-[17px] sm:text-[19px] text-black font-semibold leading-relaxed mb-5">
+                  Personalized opportunity discovery dashboard and automated 1-click application engine aggregating active internships, hackathons, and fellowship tracks across 12 tier-1 platforms with algorithmic ATS scoring.
+                </p>
+
+                <!-- 2. Second: Technology Used in Single Line (Original Colorful Icons + Hover Names Tooltip) -->
+                <div class="project-tech-stack flex items-center gap-3 sm:gap-3.5 mb-6 text-black select-none flex-wrap sm:flex-nowrap">
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="React" aria-label="React">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(0 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(60 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(120 12 12)"/>
+      <circle cx="12" cy="12" r="1.8" fill="#61DAFB"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      React
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Next.js" aria-label="Next.js">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <circle cx="12" cy="12" r="12" fill="#000000"/>
+      <path fill="#ffffff" d="M17.5 17.5l-5.8-7.5v7.5H10V6.5h1.8l5.8 7.5V6.5h1.8v11h-1.9z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Next.js
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="TypeScript" aria-label="TypeScript">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <rect width="24" height="24" rx="3" fill="#3178C6"/>
+      <path fill="#ffffff" d="M14.7 17.6c.4.3.9.5 1.5.5.7 0 1.1-.3 1.1-.8 0-.5-.4-.7-1.3-1-1.3-.5-2.1-1.2-2.1-2.4 0-1.3 1.1-2.3 2.8-2.3.8 0 1.5.2 2 .5l-.4 1.2c-.4-.3-.9-.4-1.5-.4-.7 0-1.1.3-1.1.7 0 .5.4.7 1.4 1.1 1.4.5 2.1 1.2 2.1 2.4 0 1.5-1.2 2.4-3 2.4-1 0-1.8-.3-2.4-.7l.5-1.1zM6.8 13.1h2.5v7.3H11v-7.3h2.5v-1.3H6.8v1.3z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      TypeScript
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Tailwind CSS" aria-label="Tailwind CSS">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#38BDF8" d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Tailwind CSS
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Node.js" aria-label="Node.js">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#5FA04E" d="M12 0L1.757 5.913v12.174L12 24l10.243-5.913V5.913L12 0zm0 2.296l8.257 4.767v9.874L12 21.704l-8.257-4.767V7.063L12 2.296z"/>
+      <path fill="#5FA04E" d="M10.974 7.864c-1.896 0-3.322 1.076-3.322 2.871 0 1.935 1.256 2.551 2.897 3.012l.846.244c1.154.333 1.744.705 1.744 1.487 0 .91-.782 1.487-1.923 1.487-1.243 0-1.974-.538-2.153-1.474h-1.86c.167 1.948 1.603 3.064 3.974 3.064 2.141 0 3.82-1.128 3.82-3.09 0-1.987-1.384-2.653-3.064-3.14l-.846-.244c-1.038-.308-1.577-.667-1.577-1.359 0-.795.692-1.32 1.666-1.32.987 0 1.654.487 1.833 1.295h1.833c-.154-1.744-1.448-2.833-3.468-2.833z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Node.js
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Python" aria-label="Python">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <defs>
+        <linearGradient id="py-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#387EB8"/>
+          <stop offset="100%" stop-color="#366994"/>
+        </linearGradient>
+        <linearGradient id="py-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFE873"/>
+          <stop offset="100%" stop-color="#FFD43B"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#py-blue)" d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.006 2.75h5.82v.825H3.852S0 5.787 0 11.932c0 6.14 3.398 5.925 3.398 5.925h2.03v-2.852s-.11-3.398 3.344-3.398h5.713v-.824H8.766s-3.344.054-3.344-3.344c0-3.398 2.96-3.29 2.96-3.29h9.09s3.07-.323 3.07 3.398v2.366h-1.666v-1.54s.108-1.882-1.882-1.882H11.97s-1.828-.054-1.828 1.828c0 1.882 1.56 1.828 1.828 1.828h5.658s3.452-.054 3.452 3.398c0 3.452-3.07 3.344-3.07 3.344h-2.04v.825h2.04s5.98-.38 5.98-6.033c0-5.654-4.893-5.71-4.893-5.71h-.806V2.656S18.38 0 11.914 0z"/>
+      <path fill="url(#py-yellow)" d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.006-2.75h-5.82v-.825h8.174S24 18.213 24 12.068c0-6.14-3.398-5.925-3.398-5.925h-2.03v2.852s.11 3.398-3.344 3.398H9.515v.824h5.719s3.344-.054 3.344 3.344c0 3.398-2.96 3.29-2.96 3.29H6.489s-3.07.323-3.07-3.398v-2.366h1.666v1.54s-.108 1.882 1.882 1.882h6.059s1.828.054 1.828-1.828c0-1.882-1.56-1.828-1.828-1.828H8.368s-3.452.054-3.452-3.398c0-3.452 3.07-3.344 3.07-3.344h2.04v-.825H7.986S2.006 8.351 2.006 14.004C2.006 19.658 6.9 19.714 6.9 19.714h.806v3.072S5.62 24 12.086 24z"/>
+      <circle cx="8.74" cy="2.474" r=".97" fill="#ffffff"/>
+      <circle cx="15.26" cy="21.526" r=".97" fill="#ffffff"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Python
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 3. Third: Two Action Buttons (View and GitHub) -->
+                <div class="project-actions flex items-center gap-3">
+                  <a href="https://kshitijhurle95-prog.github.io/opportunity-hub/" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>LIVE DEMO</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/opportunity-hub" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[58%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
+              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
+                <img src="src/opportunityhub_preview.png" alt="OpportunityHub Multi-Platform Career Discovery Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ==================== PROJECT [03]: ARCK SPATIAL CHAT ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[03]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">ARCK &bull; QUANTUM SPATIAL MESSAGING</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[42%] max-w-[650px] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <!-- 1. First: Project Description (Wider text container, more words per line, solid black, bold) -->
+                <p class="project-desc-text text-[17px] sm:text-[19px] text-black font-semibold leading-relaxed mb-5">
+                  Next-generation spatial real-time messaging and telepresence platform engineered with low-latency WebRTC data channels, proximity audio falloff, and dynamic 3D room coordinates.
+                </p>
+
+                <!-- 2. Second: Technology Used in Single Line (Original Colorful Icons + Hover Names Tooltip) -->
+                <div class="project-tech-stack flex items-center gap-3 sm:gap-3.5 mb-6 text-black select-none flex-wrap sm:flex-nowrap">
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="WebRTC" aria-label="WebRTC">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#4285F4" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.125 4.5a7.5 7.5 0 017.5 7.5h-2.25a5.25 5.25 0 00-5.25-5.25V4.5z"/>
+      <path fill="#EA4335" d="M10.875 9a3 3 0 013 3h-2.25a.75.75 0 00-.75-.75V9z"/>
+      <path fill="#34A853" d="M8.625 15a3 3 0 01-3-3h2.25c0 .414.336.75.75.75v2.25z"/>
+      <path fill="#FBBC05" d="M8.625 19.5a7.5 7.5 0 01-7.5-7.5h2.25a5.25 5.25 0 005.25 5.25v2.25z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      WebRTC
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Three.js" aria-label="Three.js">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#049EF4" d="M12 2.25L2.25 7.875v8.25L12 21.75l9.75-5.625v-8.25L12 2.25zm0 2.625l6.75 3.9-3.375 1.95L8.625 6.825 12 4.875zm-7.5 4.35l5.625 3.225v6.525L4.5 15.75V9.225zm9.375 9.75v-6.525l5.625-3.225v6.525l-5.625 3.225z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Three.js
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="TypeScript" aria-label="TypeScript">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <rect width="24" height="24" rx="3" fill="#3178C6"/>
+      <path fill="#ffffff" d="M14.7 17.6c.4.3.9.5 1.5.5.7 0 1.1-.3 1.1-.8 0-.5-.4-.7-1.3-1-1.3-.5-2.1-1.2-2.1-2.4 0-1.3 1.1-2.3 2.8-2.3.8 0 1.5.2 2 .5l-.4 1.2c-.4-.3-.9-.4-1.5-.4-.7 0-1.1.3-1.1.7 0 .5.4.7 1.4 1.1 1.4.5 2.1 1.2 2.1 2.4 0 1.5-1.2 2.4-3 2.4-1 0-1.8-.3-2.4-.7l.5-1.1zM6.8 13.1h2.5v7.3H11v-7.3h2.5v-1.3H6.8v1.3z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      TypeScript
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="React" aria-label="React">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(0 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(60 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(120 12 12)"/>
+      <circle cx="12" cy="12" r="1.8" fill="#61DAFB"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      React
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Node.js" aria-label="Node.js">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#5FA04E" d="M12 0L1.757 5.913v12.174L12 24l10.243-5.913V5.913L12 0zm0 2.296l8.257 4.767v9.874L12 21.704l-8.257-4.767V7.063L12 2.296z"/>
+      <path fill="#5FA04E" d="M10.974 7.864c-1.896 0-3.322 1.076-3.322 2.871 0 1.935 1.256 2.551 2.897 3.012l.846.244c1.154.333 1.744.705 1.744 1.487 0 .91-.782 1.487-1.923 1.487-1.243 0-1.974-.538-2.153-1.474h-1.86c.167 1.948 1.603 3.064 3.974 3.064 2.141 0 3.82-1.128 3.82-3.09 0-1.987-1.384-2.653-3.064-3.14l-.846-.244c-1.038-.308-1.577-.667-1.577-1.359 0-.795.692-1.32 1.666-1.32.987 0 1.654.487 1.833 1.295h1.833c-.154-1.744-1.448-2.833-3.468-2.833z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Node.js
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Tailwind CSS" aria-label="Tailwind CSS">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#38BDF8" d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Tailwind CSS
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 3. Third: Two Action Buttons (View and GitHub) -->
+                <div class="project-actions flex items-center gap-3">
+                  <a href="https://github.com/kshitijhurle95-prog/arck-spatial-chat#readme" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>VIEW PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/arck-spatial-chat" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[58%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
+              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
+                <img src="src/nebula_preview.png" alt="ARCK Spatial Real-Time Messaging Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ==================== PROJECT [04]: ATMOS WEATHER INTELLIGENCE ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[04]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">ATMOS &bull; WEATHER INTELLIGENCE</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[42%] max-w-[650px] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <!-- 1. First: Project Description (Wider text container, more words per line, solid black, bold) -->
+                <p class="project-desc-text text-[17px] sm:text-[19px] text-black font-semibold leading-relaxed mb-5">
+                  Modern atmospheric intelligence platform delivering hyper-local precision conditions, interactive 24-hour timeline scrubbing, multi-day radar mapping, and live air quality telemetry.
+                </p>
+
+                <!-- 2. Second: Technology Used in Single Line (Original Colorful Icons + Hover Names Tooltip) -->
+                <div class="project-tech-stack flex items-center gap-3 sm:gap-3.5 mb-6 text-black select-none flex-wrap sm:flex-nowrap">
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Next.js" aria-label="Next.js">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <circle cx="12" cy="12" r="12" fill="#000000"/>
+      <path fill="#ffffff" d="M17.5 17.5l-5.8-7.5v7.5H10V6.5h1.8l5.8 7.5V6.5h1.8v11h-1.9z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Next.js
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="React" aria-label="React">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(0 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(60 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(120 12 12)"/>
+      <circle cx="12" cy="12" r="1.8" fill="#61DAFB"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      React
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="TypeScript" aria-label="TypeScript">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <rect width="24" height="24" rx="3" fill="#3178C6"/>
+      <path fill="#ffffff" d="M14.7 17.6c.4.3.9.5 1.5.5.7 0 1.1-.3 1.1-.8 0-.5-.4-.7-1.3-1-1.3-.5-2.1-1.2-2.1-2.4 0-1.3 1.1-2.3 2.8-2.3.8 0 1.5.2 2 .5l-.4 1.2c-.4-.3-.9-.4-1.5-.4-.7 0-1.1.3-1.1.7 0 .5.4.7 1.4 1.1 1.4.5 2.1 1.2 2.1 2.4 0 1.5-1.2 2.4-3 2.4-1 0-1.8-.3-2.4-.7l.5-1.1zM6.8 13.1h2.5v7.3H11v-7.3h2.5v-1.3H6.8v1.3z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      TypeScript
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Tailwind CSS" aria-label="Tailwind CSS">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#38BDF8" d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Tailwind CSS
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Mapbox" aria-label="Mapbox">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <circle cx="12" cy="12" r="12" fill="#4264FB"/>
+      <path fill="#ffffff" d="M9.75 7.5l-1.5 6 4.5-2.25 4.5 2.25-1.5-6-3 1.5-3-1.5z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Mapbox
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Node.js" aria-label="Node.js">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#5FA04E" d="M12 0L1.757 5.913v12.174L12 24l10.243-5.913V5.913L12 0zm0 2.296l8.257 4.767v9.874L12 21.704l-8.257-4.767V7.063L12 2.296z"/>
+      <path fill="#5FA04E" d="M10.974 7.864c-1.896 0-3.322 1.076-3.322 2.871 0 1.935 1.256 2.551 2.897 3.012l.846.244c1.154.333 1.744.705 1.744 1.487 0 .91-.782 1.487-1.923 1.487-1.243 0-1.974-.538-2.153-1.474h-1.86c.167 1.948 1.603 3.064 3.974 3.064 2.141 0 3.82-1.128 3.82-3.09 0-1.987-1.384-2.653-3.064-3.14l-.846-.244c-1.038-.308-1.577-.667-1.577-1.359 0-.795.692-1.32 1.666-1.32.987 0 1.654.487 1.833 1.295h1.833c-.154-1.744-1.448-2.833-3.468-2.833z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Node.js
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 3. Third: Two Action Buttons (View and GitHub) -->
+                <div class="project-actions flex items-center gap-3">
+                  <a href="https://kshitijhurle95-prog.github.io/atmos-weather-intelligence/" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>LIVE DEMO</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/atmos-weather-intelligence" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[58%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
+              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
+                <img src="src/atmos_preview.png" alt="Atmos Weather Intelligence Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ==================== PROJECT [05]: PAYPULSE AI ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[05]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">PAYPULSE AI &bull; FINANCIAL WORKBENCH</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[42%] max-w-[650px] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <!-- 1. First: Project Description (Wider text container, more words per line, solid black, bold) -->
+                <p class="project-desc-text text-[17px] sm:text-[19px] text-black font-semibold leading-relaxed mb-5">
+                  Zero-dashboard conversational financial workbench and PayPal store manager integrating Groq Llama 3 for real-time natural language query execution, dispute arbitration, and automated order workflows.
+                </p>
+
+                <!-- 2. Second: Technology Used in Single Line (Original Colorful Icons + Hover Names Tooltip) -->
+                <div class="project-tech-stack flex items-center gap-3 sm:gap-3.5 mb-6 text-black select-none flex-wrap sm:flex-nowrap">
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Python" aria-label="Python">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <defs>
+        <linearGradient id="py-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#387EB8"/>
+          <stop offset="100%" stop-color="#366994"/>
+        </linearGradient>
+        <linearGradient id="py-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFE873"/>
+          <stop offset="100%" stop-color="#FFD43B"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#py-blue)" d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.006 2.75h5.82v.825H3.852S0 5.787 0 11.932c0 6.14 3.398 5.925 3.398 5.925h2.03v-2.852s-.11-3.398 3.344-3.398h5.713v-.824H8.766s-3.344.054-3.344-3.344c0-3.398 2.96-3.29 2.96-3.29h9.09s3.07-.323 3.07 3.398v2.366h-1.666v-1.54s.108-1.882-1.882-1.882H11.97s-1.828-.054-1.828 1.828c0 1.882 1.56 1.828 1.828 1.828h5.658s3.452-.054 3.452 3.398c0 3.452-3.07 3.344-3.07 3.344h-2.04v.825h2.04s5.98-.38 5.98-6.033c0-5.654-4.893-5.71-4.893-5.71h-.806V2.656S18.38 0 11.914 0z"/>
+      <path fill="url(#py-yellow)" d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.006-2.75h-5.82v-.825h8.174S24 18.213 24 12.068c0-6.14-3.398-5.925-3.398-5.925h-2.03v2.852s.11 3.398-3.344 3.398H9.515v.824h5.719s3.344-.054 3.344 3.344c0 3.398-2.96 3.29-2.96 3.29H6.489s-3.07.323-3.07-3.398v-2.366h1.666v1.54s-.108 1.882 1.882 1.882h6.059s1.828.054 1.828-1.828c0-1.882-1.56-1.828-1.828-1.828H8.368s-3.452.054-3.452-3.398c0-3.452 3.07-3.344 3.07-3.344h2.04v-.825H7.986S2.006 8.351 2.006 14.004C2.006 19.658 6.9 19.714 6.9 19.714h.806v3.072S5.62 24 12.086 24z"/>
+      <circle cx="8.74" cy="2.474" r=".97" fill="#ffffff"/>
+      <circle cx="15.26" cy="21.526" r=".97" fill="#ffffff"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Python
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="FastAPI" aria-label="FastAPI">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <circle cx="12" cy="12" r="12" fill="#05998B"/>
+      <path fill="#ffffff" d="M13.05 4.5l-4.2 8.4h3.6l-1.5 6.6 6.3-9.6h-3.9l1.8-5.4h-2.1z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      FastAPI
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="React" aria-label="React">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(0 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(60 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.5" transform="rotate(120 12 12)"/>
+      <circle cx="12" cy="12" r="1.8" fill="#61DAFB"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      React
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="TypeScript" aria-label="TypeScript">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <rect width="24" height="24" rx="3" fill="#3178C6"/>
+      <path fill="#ffffff" d="M14.7 17.6c.4.3.9.5 1.5.5.7 0 1.1-.3 1.1-.8 0-.5-.4-.7-1.3-1-1.3-.5-2.1-1.2-2.1-2.4 0-1.3 1.1-2.3 2.8-2.3.8 0 1.5.2 2 .5l-.4 1.2c-.4-.3-.9-.4-1.5-.4-.7 0-1.1.3-1.1.7 0 .5.4.7 1.4 1.1 1.4.5 2.1 1.2 2.1 2.4 0 1.5-1.2 2.4-3 2.4-1 0-1.8-.3-2.4-.7l.5-1.1zM6.8 13.1h2.5v7.3H11v-7.3h2.5v-1.3H6.8v1.3z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      TypeScript
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Tailwind CSS" aria-label="Tailwind CSS">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#38BDF8" d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Tailwind CSS
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Node.js" aria-label="Node.js">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#5FA04E" d="M12 0L1.757 5.913v12.174L12 24l10.243-5.913V5.913L12 0zm0 2.296l8.257 4.767v9.874L12 21.704l-8.257-4.767V7.063L12 2.296z"/>
+      <path fill="#5FA04E" d="M10.974 7.864c-1.896 0-3.322 1.076-3.322 2.871 0 1.935 1.256 2.551 2.897 3.012l.846.244c1.154.333 1.744.705 1.744 1.487 0 .91-.782 1.487-1.923 1.487-1.243 0-1.974-.538-2.153-1.474h-1.86c.167 1.948 1.603 3.064 3.974 3.064 2.141 0 3.82-1.128 3.82-3.09 0-1.987-1.384-2.653-3.064-3.14l-.846-.244c-1.038-.308-1.577-.667-1.577-1.359 0-.795.692-1.32 1.666-1.32.987 0 1.654.487 1.833 1.295h1.833c-.154-1.744-1.448-2.833-3.468-2.833z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Node.js
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 3. Third: Two Action Buttons (View and GitHub) -->
+                <div class="project-actions flex items-center gap-3">
+                  <a href="https://github.com/kshitijhurle95-prog/paypulse-ai#readme" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>VIEW PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                  <a href="https://github.com/kshitijhurle95-prog/paypulse-ai" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GITHUB</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[58%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
+              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
+                <img src="src/paypulse_preview.png" alt="PayPulse AI Store Manager Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!-- ==================== PROJECT [06]: PORTFOLIO V2.0 ==================== -->
+          <div class="project-item flex flex-col w-full relative" data-project-item="">
+            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
+              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[06]</div>
+              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">PORTFOLIO V2.0 &bull; MOTION LAB</h3>
+            </div>
+            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
+              <div class="project-description-col w-full lg:w-[42%] max-w-[650px] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <!-- 1. First: Project Description (Wider text container, more words per line, solid black, bold) -->
                 <p class="project-desc-text text-[17px] sm:text-[19px] text-black font-semibold leading-relaxed mb-5">
                   High-performance digital engineering portfolio featuring an interactive 3D WebGL Earth globe, dual-state magnetic cursor, Paul Kalkbrenner mosaic transitions, and Curtis Nguyen WebGL shaders.
                 </p>
 
-                <!-- 2. Second: Technology Used in Single Line (Only Icons & Logos) -->
-                <div class="project-tech-stack flex items-center gap-2.5 sm:gap-3 mb-6 text-black select-none flex-wrap sm:flex-nowrap">
-                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Three.js" aria-label="Three.js">
-                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.25L2.25 7.875v8.25L12 21.75l9.75-5.625v-8.25L12 2.25zm0 2.625l6.75 3.9-3.375 1.95L8.625 6.825 12 4.875zm-7.5 4.35l5.625 3.225v6.525L4.5 15.75V9.225zm9.375 9.75v-6.525l5.625-3.225v6.525l-5.625 3.225z"/></svg>
-                  </span>
-                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="WebGL" aria-label="WebGL">
-                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M12 1.5l10.392 6v12L12 25.5 1.608 19.5v-12L12 1.5zm0 3.464L4.206 9.464v7.072L12 21.036l7.794-4.5V9.464L12 4.964zM12 8l4.5 2.598v5.196L12 18.392l-4.5-2.598V10.598L12 8z"/></svg>
-                  </span>
-                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="JavaScript" aria-label="JavaScript">
-                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.221.24 1.02-.69 1.486-1.891 1.365-.795-.12-1.275-.54-1.77-1.215l-1.844 1.05c.42.825 1.005 1.47 1.815 1.845.87.42 1.86.51 2.85.345 1.246-.255 2.22-.96 2.595-2.025.076-.255.12-.51.076-.765zm-9.513-7.981h-2.31v6.736c0 1.546-.06 2.266-.39 2.761-.315.48-.825.75-1.545.75-.436 0-.841-.09-1.201-.271l-.435 2.115c.6.255 1.305.375 2.055.375 1.485 0 2.535-.555 3.12-1.62.465-.84.706-2.055.706-3.825V10.295z"/></svg>
-                  </span>
-                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="GSAP" aria-label="GSAP">
-                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2.25 5.25h4.5c2.485 0 4.5 2.015 4.5 4.5s-2.015 4.5-4.5 4.5h-2.25v4.5h-2.25V5.25zm2.25 2.25v4.5h2.25c1.243 0 2.25-1.007 2.25-2.25s-1.007-2.25-2.25-2.25h-2.25z"/></svg>
-                  </span>
-                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Tailwind CSS" aria-label="Tailwind CSS">
-                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg>
-                  </span>
-                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="HTML5" aria-label="HTML5">
-                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M1.5 0h21l-1.91 21.463L11.977 24l-8.565-2.537L1.5 0zm7.09 8.016l.206 2.308h7.45l-.234 2.625-4.035 1.09-4.035-1.09-.15-1.687H5.45l.298 3.375 6.229 1.728 6.229-1.728.618-6.938.188-2.083.187-2.083H5.093l.206 2.308h10.378l-.206 2.308H8.59z"/></svg>
-                  </span>
+                <!-- 2. Second: Technology Used in Single Line (Original Colorful Icons + Hover Names Tooltip) -->
+                <div class="project-tech-stack flex items-center gap-3 sm:gap-3.5 mb-6 text-black select-none flex-wrap sm:flex-nowrap">
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Three.js" aria-label="Three.js">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#049EF4" d="M12 2.25L2.25 7.875v8.25L12 21.75l9.75-5.625v-8.25L12 2.25zm0 2.625l6.75 3.9-3.375 1.95L8.625 6.825 12 4.875zm-7.5 4.35l5.625 3.225v6.525L4.5 15.75V9.225zm9.375 9.75v-6.525l5.625-3.225v6.525l-5.625 3.225z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Three.js
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="WebGL" aria-label="WebGL">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#990000" d="M12 1.5l10.392 6v12L12 25.5 1.608 19.5v-12L12 1.5z"/>
+      <path fill="#ffffff" d="M12 4.964L4.206 9.464v7.072L12 21.036l7.794-4.5V9.464L12 4.964z"/>
+      <path fill="#005080" d="M12 8l4.5 2.598v5.196L12 18.392l-4.5-2.598V10.598L12 8z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      WebGL
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="JavaScript" aria-label="JavaScript">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <rect width="24" height="24" rx="3" fill="#F7DF1E"/>
+      <path fill="#000000" d="M13.2 18.2c-.2-.9-.8-1.7-2.6-2.4-.6-.3-1.3-.5-1.5-1-.1-.3-.1-.4 0-.6.1-.5.8-.7 1.3-.6.3.1.6.4.8.8l1.5-.9c-.2-.4-.4-.5-.5-.7-.5-.6-1.2-.9-2.4-.8l-.6.1c-.6.2-1.1.4-1.4.9-.9 1.1-.7 3 .5 3.9 1.1.9 2.8 1.1 3 1.9.2.9-.6 1.3-1.5 1.2-.7-.1-1.1-.4-1.5-1l-1.5.9c.4.7.8 1.3 1.5 1.6.8.4 1.6.4 2.4.3 1.1-.2 1.9-.9 2.2-1.8.1-.2.1-.4.1-.6zm-7.8-6.6H3.4v5.6c0 1.3-.1 1.9-.3 2.3-.3.4-.7.6-1.3.6-.3 0-.7-.1-1-.3l-.3 1.8c.5.2 1.1.3 1.7.3 1.3 0 2.2-.4 2.7-1.4.4-.7.6-1.7.6-3.2v-5.7z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      JavaScript
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="GSAP" aria-label="GSAP">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <circle cx="12" cy="12" r="12" fill="#0AE448"/>
+      <path fill="#000000" d="M9.75 5.25h4.5c2.485 0 4.5 2.015 4.5 4.5s-2.015 4.5-4.5 4.5h-2.25v4.5h-2.25V5.25zm2.25 2.25v4.5h2.25c1.243 0 2.25-1.007 2.25-2.25s-1.007-2.25-2.25-2.25h-2.25z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      GSAP
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Tailwind CSS" aria-label="Tailwind CSS">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#38BDF8" d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      Tailwind CSS
+                    </span>
+                  </div>
+                  <div class="project-tech-icon group relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-black/10 hover:border-black/30 hover:scale-[1.32] transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="HTML5" aria-label="HTML5">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-200">
+      <path fill="#E34F26" d="M1.5 0h21l-1.91 21.463L11.977 24l-8.565-2.537L1.5 0z"/>
+      <path fill="#EF652A" d="M12 2.18v19.66l6.84-1.905 1.58-17.755H12z"/>
+      <path fill="#EBEBEB" d="M12 10.324H8.59l-.206-2.308h3.616V5.708H5.093l.6 6.924h6.307v-2.308zm0 5.864l-.01.003-2.92-.788-.186-2.083H6.57l.366 4.106L12 18.847v-2.659z"/>
+      <path fill="#ffffff" d="M12 10.324h3.41l-.32 3.585-3.09.834v2.404l5.474-1.52.44-4.945.188-2.358H12v1.999zm0-4.616v2.308h6.03l.206-2.308H12z"/>
+    </svg>
+                    <span class="project-tech-tooltip pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-md bg-black text-[#81FF28] text-[10.5px] font-mono font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg z-30 border border-white/10">
+                      HTML5
+                    </span>
+                  </div>
                 </div>
 
                 <!-- 3. Third: Two Action Buttons (View and GitHub) -->
@@ -1144,186 +1682,8 @@
                   </a>
                 </div>
               </div>
-              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
+              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[58%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
               <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
-                <div class="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-[#81FF28] font-mono text-[10px] font-bold tracking-wider uppercase">
-                  CASE STUDY
-                </div>
-                <img src="src/kitai_preview.png" alt="KitAi Autonomous Multimodal Study Agent Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
-              </div>
-            </div>
-            </div>
-          </div>
-
-          <!-- ==================== PROJECT [02]: OPPORTUNITYHUB ==================== -->
-          <div class="project-item flex flex-col w-full relative" data-project-item="">
-            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
-              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[02]</div>
-              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">OPPORTUNITYHUB &bull; CAREER ENGINE</h3>
-            </div>
-            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
-              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
-                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">FULL-STACK &bull; 1-CLICK AUTOMATION</span>
-                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
-                  Personalized opportunity discovery dashboard and automated 1-click application engine aggregating active internships, hackathons, and fellowship tracks across 12 tier-1 platforms with algorithmic ATS scoring.
-                </p>
-                <div class="flex items-center gap-3">
-                  <a href="https://kshitijhurle95-prog.github.io/opportunity-hub/" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
-                    <span>LIVE DEMO</span>
-                    <span>&nearr;</span>
-                  </a>
-                  <a href="https://github.com/kshitijhurle95-prog/opportunity-hub" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    <span>GITHUB</span>
-                    <span>&nearr;</span>
-                  </a>
-                </div>
-              </div>
-              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
-              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
-                <div class="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-[#81FF28] font-mono text-[10px] font-bold tracking-wider uppercase">
-                  APP PLATFORM
-                </div>
-                <img src="src/opportunityhub_preview.png" alt="OpportunityHub Multi-Platform Career Discovery Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
-              </div>
-            </div>
-            </div>
-          </div>
-
-          <!-- ==================== PROJECT [03]: ARCK SPATIAL CHAT ==================== -->
-          <div class="project-item flex flex-col w-full relative" data-project-item="">
-            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
-              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[03]</div>
-              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">ARCK &bull; QUANTUM SPATIAL MESSAGING</h3>
-            </div>
-            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
-              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
-                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">REAL-TIME &bull; WEBRTC &bull; 3D AUDIO MESH</span>
-                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
-                  Next-generation spatial real-time messaging and telepresence platform engineered with low-latency WebRTC data channels, proximity audio falloff, and dynamic 3D room coordinates.
-                </p>
-                <div class="flex items-center gap-3">
-                  <a href="https://github.com/kshitijhurle95-prog/arck-spatial-chat#readme" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
-                    <span>VIEW PROJECT</span>
-                    <span>&nearr;</span>
-                  </a>
-                  <a href="https://github.com/kshitijhurle95-prog/arck-spatial-chat" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    <span>GITHUB</span>
-                    <span>&nearr;</span>
-                  </a>
-                </div>
-              </div>
-              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
-              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
-                <div class="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-[#81FF28] font-mono text-[10px] font-bold tracking-wider uppercase">
-                  SPATIAL MESH
-                </div>
-                <img src="src/nebula_preview.png" alt="ARCK Spatial Real-Time Messaging Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
-              </div>
-            </div>
-            </div>
-          </div>
-
-          <!-- ==================== PROJECT [04]: ATMOS WEATHER INTELLIGENCE ==================== -->
-          <div class="project-item flex flex-col w-full relative" data-project-item="">
-            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
-              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[04]</div>
-              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">ATMOS &bull; WEATHER INTELLIGENCE</h3>
-            </div>
-            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
-              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
-                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">NEXT.JS 15 &bull; RADAR MAPS &bull; TELEMETRY</span>
-                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
-                  Modern atmospheric intelligence platform delivering hyper-local precision conditions, interactive 24-hour timeline scrubbing, multi-day radar mapping, and live air quality telemetry.
-                </p>
-                <div class="flex items-center gap-3">
-                  <a href="https://kshitijhurle95-prog.github.io/atmos-weather-intelligence/" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
-                    <span>LIVE DEMO</span>
-                    <span>&nearr;</span>
-                  </a>
-                  <a href="https://github.com/kshitijhurle95-prog/atmos-weather-intelligence" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    <span>GITHUB</span>
-                    <span>&nearr;</span>
-                  </a>
-                </div>
-              </div>
-              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
-              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
-                <div class="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-[#81FF28] font-mono text-[10px] font-bold tracking-wider uppercase">
-                  INTELLIGENCE
-                </div>
-                <img src="src/atmos_preview.png" alt="Atmos Weather Intelligence Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
-              </div>
-            </div>
-            </div>
-          </div>
-
-          <!-- ==================== PROJECT [05]: PAYPULSE AI ==================== -->
-          <div class="project-item flex flex-col w-full relative" data-project-item="">
-            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
-              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[05]</div>
-              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">PAYPULSE AI &bull; FINANCIAL WORKBENCH</h3>
-            </div>
-            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
-              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
-                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">GROQ LLAMA 3 &bull; PAYPAL SANDBOX &bull; AG GRID</span>
-                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
-                  Zero-dashboard conversational financial workbench and PayPal store manager integrating Groq Llama 3 for real-time natural language query execution, dispute arbitration, and automated order workflows.
-                </p>
-                <div class="flex items-center gap-3">
-                  <a href="https://github.com/kshitijhurle95-prog/paypulse-ai#readme" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
-                    <span>VIEW PROJECT</span>
-                    <span>&nearr;</span>
-                  </a>
-                  <a href="https://github.com/kshitijhurle95-prog/paypulse-ai" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    <span>GITHUB</span>
-                    <span>&nearr;</span>
-                  </a>
-                </div>
-              </div>
-              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
-              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
-                <div class="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-[#81FF28] font-mono text-[10px] font-bold tracking-wider uppercase">
-                  FINTECH AI
-                </div>
-                <img src="src/paypulse_preview.png" alt="PayPulse AI Store Manager Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
-              </div>
-            </div>
-            </div>
-          </div>
-
-          <!-- ==================== PROJECT [06]: PORTFOLIO V2.0 ==================== -->
-          <div class="project-item flex flex-col w-full relative" data-project-item="">
-            <div class="project-row flex items-center justify-between w-full border-t border-b border-black/15 px-6 sm:px-10 lg:px-14 py-4 sm:py-5 bg-white z-20" data-project-row="">
-              <div class="project-number font-mono text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">[06]</div>
-              <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">PORTFOLIO V2.0 &bull; MOTION LAB</h3>
-            </div>
-            <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
-              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
-                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">THREE.JS WEBGL &bull; GSAP KINETICS &bull; GLSL SHADERS</span>
-                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
-                  High-performance digital engineering portfolio featuring an interactive 3D WebGL Earth globe, dual-state magnetic cursor, Paul Kalkbrenner mosaic transitions, and Curtis Nguyen WebGL shaders.
-                </p>
-                <div class="flex items-center gap-3">
-                  <a href="https://kshitijhurle95-prog.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
-                    <span>LIVE DEMO</span>
-                    <span>&nearr;</span>
-                  </a>
-                  <a href="https://github.com/kshitijhurle95-prog/portfolio" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    <span>GITHUB</span>
-                    <span>&nearr;</span>
-                  </a>
-                </div>
-              </div>
-              <div class="project-image-wrap absolute top-0 right-0 w-full lg:w-[70%] h-full flex items-center justify-center p-6 sm:p-8 lg:p-12 overflow-hidden z-20" data-project-image-wrap="">
-              <div class="project-image-frame relative w-auto max-w-[88%] lg:max-w-[82%] max-h-[72vh] rounded-2xl overflow-hidden border border-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-[#0e1217] flex flex-col group/frame transition-all duration-300">
-                <div class="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-[#81FF28] font-mono text-[10px] font-bold tracking-wider uppercase">
-                  MOTION LAB
-                </div>
                 <img src="assets/screenshots/hero-preview.png" alt="Portfolio v2.0 Motion Lab Preview" class="w-full h-auto max-h-[66vh] object-contain rounded-xl select-none" />
               </div>
             </div>
