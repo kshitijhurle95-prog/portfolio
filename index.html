@@ -1103,17 +1103,41 @@
               <h3 class="project-title font-heading text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold uppercase text-black text-right">KITAI &bull; AUTONOMOUS STUDY AGENT</h3>
             </div>
             <div class="project-visual relative w-full overflow-hidden flex flex-col lg:flex-row bg-white" data-project-visual="">
-              <div class="project-description-col w-full lg:w-[30%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
-                <span class="text-xs font-mono font-bold uppercase tracking-widest text-black/60 mb-2">AI SYSTEMS &bull; MULTIMODAL REASONING</span>
-                <p class="text-sm sm:text-base text-black/80 leading-relaxed font-medium mb-6">
-                  Autonomous self-learning multimodal AI study agent featuring verified runtime code execution, vision-driven whiteboard reasoning, dynamic chain-of-thought feedback loops, and algorithmic spaced repetition.
+              <div class="project-description-col w-full lg:w-[32%] p-6 sm:p-8 lg:p-10 flex flex-col justify-end z-10" data-project-desc="">
+                <!-- 1. First: Project Description (+3px font size, solid black, bold) -->
+                <p class="project-desc-text text-[17px] sm:text-[19px] text-black font-semibold leading-relaxed mb-5">
+                  High-performance digital engineering portfolio featuring an interactive 3D WebGL Earth globe, dual-state magnetic cursor, Paul Kalkbrenner mosaic transitions, and Curtis Nguyen WebGL shaders.
                 </p>
-                <div class="flex items-center gap-3">
-                  <a href="https://github.com/kshitijhurle95-prog/KitAi#readme" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
-                    <span>VIEW PROJECT</span>
+
+                <!-- 2. Second: Technology Used in Single Line (Only Icons & Logos) -->
+                <div class="project-tech-stack flex items-center gap-2.5 sm:gap-3 mb-6 text-black select-none flex-wrap sm:flex-nowrap">
+                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Three.js" aria-label="Three.js">
+                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.25L2.25 7.875v8.25L12 21.75l9.75-5.625v-8.25L12 2.25zm0 2.625l6.75 3.9-3.375 1.95L8.625 6.825 12 4.875zm-7.5 4.35l5.625 3.225v6.525L4.5 15.75V9.225zm9.375 9.75v-6.525l5.625-3.225v6.525l-5.625 3.225z"/></svg>
+                  </span>
+                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="WebGL" aria-label="WebGL">
+                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M12 1.5l10.392 6v12L12 25.5 1.608 19.5v-12L12 1.5zm0 3.464L4.206 9.464v7.072L12 21.036l7.794-4.5V9.464L12 4.964zM12 8l4.5 2.598v5.196L12 18.392l-4.5-2.598V10.598L12 8z"/></svg>
+                  </span>
+                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="JavaScript" aria-label="JavaScript">
+                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.221.24 1.02-.69 1.486-1.891 1.365-.795-.12-1.275-.54-1.77-1.215l-1.844 1.05c.42.825 1.005 1.47 1.815 1.845.87.42 1.86.51 2.85.345 1.246-.255 2.22-.96 2.595-2.025.076-.255.12-.51.076-.765zm-9.513-7.981h-2.31v6.736c0 1.546-.06 2.266-.39 2.761-.315.48-.825.75-1.545.75-.436 0-.841-.09-1.201-.271l-.435 2.115c.6.255 1.305.375 2.055.375 1.485 0 2.535-.555 3.12-1.62.465-.84.706-2.055.706-3.825V10.295z"/></svg>
+                  </span>
+                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="GSAP" aria-label="GSAP">
+                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2.25 5.25h4.5c2.485 0 4.5 2.015 4.5 4.5s-2.015 4.5-4.5 4.5h-2.25v4.5h-2.25V5.25zm2.25 2.25v4.5h2.25c1.243 0 2.25-1.007 2.25-2.25s-1.007-2.25-2.25-2.25h-2.25z"/></svg>
+                  </span>
+                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="Tailwind CSS" aria-label="Tailwind CSS">
+                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg>
+                  </span>
+                  <span class="project-tech-icon w-8 h-8 rounded-lg border border-black/15 bg-black/[0.03] flex items-center justify-center hover:bg-black hover:text-[#81FF28] hover:border-black hover:scale-105 transition-all duration-200 cursor-pointer shadow-xs shrink-0" title="HTML5" aria-label="HTML5">
+                    <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M1.5 0h21l-1.91 21.463L11.977 24l-8.565-2.537L1.5 0zm7.09 8.016l.206 2.308h7.45l-.234 2.625-4.035 1.09-4.035-1.09-.15-1.687H5.45l.298 3.375 6.229 1.728 6.229-1.728.618-6.938.188-2.083.187-2.083H5.093l.206 2.308h10.378l-.206 2.308H8.59z"/></svg>
+                  </span>
+                </div>
+
+                <!-- 3. Third: Two Action Buttons (View and GitHub) -->
+                <div class="project-actions flex items-center gap-3">
+                  <a href="https://kshitijhurle95-prog.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="project-cta-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-black text-[#81FF28] font-mono font-bold text-xs uppercase tracking-wider hover:bg-black/90 hover:scale-105 transition-all shadow-md">
+                    <span>LIVE DEMO</span>
                     <span>&nearr;</span>
                   </a>
-                  <a href="https://github.com/kshitijhurle95-prog/KitAi" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
+                  <a href="https://github.com/kshitijhurle95-prog/portfolio" target="_blank" rel="noopener noreferrer" class="project-github-btn inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-black/30 text-black font-mono font-bold text-xs uppercase tracking-wider hover:border-black hover:bg-black/5 transition-all">
                     <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>GITHUB</span>
                     <span>&nearr;</span>
