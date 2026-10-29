@@ -1307,6 +1307,47 @@ html.lenis, html.lenis body {
   box-shadow: 0 6px 20px rgba(129, 255, 40, 0.45);
 }
 
+/* Hero Social Circular Action Buttons (GitHub, Gmail, LinkedIn) */
+.hero-social-links {
+  z-index: 35 !important;
+  pointer-events: auto;
+  bottom: clamp(135px, 17vh, 165px) !important;
+  top: auto !important;
+}
+
+.hero-social-btn {
+  background-color: #FFFFFF !important;
+  border-color: #000000 !important;
+  color: #000000 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-social-btn svg {
+  color: #000000 !important;
+  transition: color 0.3s ease, fill 0.3s ease, stroke 0.3s ease !important;
+}
+
+.hero-social-btn:hover {
+  background-color: #000000 !important;
+  border-color: #81FF28 !important;
+  color: #81FF28 !important;
+  transform: scale(1.12) !important;
+  box-shadow: 0 0 16px rgba(129, 255, 40, 0.45) !important;
+}
+
+.hero-social-btn:hover svg {
+  color: #81FF28 !important;
+  fill: #81FF28;
+}
+
+.hero-social-btn:hover svg[stroke] {
+  stroke: #81FF28 !important;
+}
+
+.hero-social-btn:active {
+  transform: scale(0.95) !important;
+}
+
 @media (max-width: 1023px) {
   #hero-title-last {
     margin-left: 0 !important;
@@ -1374,6 +1415,17 @@ html.lenis, html.lenis body {
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
     margin-top: 1rem !important;
+  }
+  
+  .hero-social-links {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    padding-left: 1.5rem !important;
+    flex-direction: row !important;
+    margin: 1rem 0 !important;
   }
 }
 

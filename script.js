@@ -247,6 +247,7 @@
     const heroMarkers = document.querySelectorAll('.hero-marker');
     const heroBottomLeft = document.querySelector('.hero-bottom-left');
     const heroBottomRight = document.querySelector('.hero-bottom-right');
+    const heroSocialLinks = document.getElementById('hero-social-links');
     const siteHeader = document.querySelector('.site-header');
 
     // Initial styles for Hero elements: hidden until launch screen exits
@@ -258,6 +259,7 @@
     if (heroMarkers.length) gsap.set(heroMarkers, { opacity: 0, y: 20 });
     if (heroBottomLeft) gsap.set(heroBottomLeft, { opacity: 0, y: 20 });
     if (heroBottomRight) gsap.set(heroBottomRight, { opacity: 0, y: 20 });
+    if (heroSocialLinks) gsap.set(heroSocialLinks, { opacity: 0, y: 20 });
 
     // Ensure Navbar is invisible and unclickable during the loader screen
     if (siteHeader) gsap.set(siteHeader, { opacity: 0, pointerEvents: 'none' });
@@ -547,12 +549,26 @@
       );
     }
 
+    // Right-side Hero social circular buttons (GitHub, Gmail, LinkedIn)
+    if (heroSocialLinks) {
+      tl.fromTo(
+        heroSocialLinks,
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' },
+        exitStart + 0.50
+      );
+    }
+
     // Clean handoff: remove loader overlay when curtain has fully exited
     tl.add(() => {
       if (heroWord) gsap.set(heroWord, { opacity: 1 });
       if (heroPortrait) {
         heroPortrait.style.transform = 'none';
         heroPortrait.style.willChange = 'auto';
+      }
+      if (heroSocialLinks) {
+        heroSocialLinks.style.opacity = '1';
+        heroSocialLinks.style.transform = 'none';
       }
       if (siteHeader) {
         siteHeader.style.opacity = '1';
