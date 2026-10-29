@@ -1438,12 +1438,16 @@ html.lenis, html.lenis body {
 #contact-shadow-shell {
   background: transparent !important;
   background-color: transparent !important;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+  transition: filter 0.5s ease;
 }
 
-#contact-shadow-shell > div,
-#contact-dark-fill,
 #contact-card-surface {
+  background-color: #FFFFFF;
+  background: #FFFFFF;
+}
+
+#contact-dark-fill {
   background-color: #16181b !important;
   background: #16181b !important;
 }

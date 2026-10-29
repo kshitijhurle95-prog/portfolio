@@ -1320,7 +1320,12 @@
           
           <!-- Background Shell with Silhouette -->
           <div id="contact-shadow-shell" class="absolute inset-0 w-full h-full pointer-events-none bg-transparent" style="filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.16));">
-            <div id="contact-card-surface" class="w-full h-full relative overflow-hidden pointer-events-auto bg-[#16181b]" style="clip-path: url(#contact-container-silhouette); -webkit-clip-path: url(#contact-container-silhouette); background-color: #16181b !important;">
+            <div id="contact-card-surface" class="w-full h-full relative overflow-hidden pointer-events-auto bg-white" style="clip-path: url(#contact-container-silhouette); -webkit-clip-path: url(#contact-container-silhouette); background-color: #ffffff;">
+              
+              <!-- Silhouette Initial Border (visible before doodle flood) -->
+              <svg id="contact-silhouette-border" class="absolute inset-0 w-full h-full pointer-events-none z-2" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 0 64.5 C 0 22.9, 18 22.9, 40 22.9 L 395 22.9 C 415 22.9, 420 0, 440 0 L 560 0 C 580 0, 585 22.9, 605 22.9 L 960 22.9 C 982 22.9, 1000 22.9, 1000 64.5 L 1000 461.8 C 1000 503.9, 982 503.9, 960 503.9 L 845 503.9 C 829 503.9, 829 520, 813 520 L 187 520 C 171 520, 171 503.9, 155 503.9 L 40 503.9 C 18 503.9, 0 503.9, 0 461.8 Z" fill="none" stroke="rgba(22, 24, 27, 0.12)" stroke-width="1.5" />
+              </svg>
               
               <!-- Contact Doodle Brush SVG -->
               <div class="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
@@ -1443,7 +1448,7 @@
               </div>
 
               <!-- Right Contact Pill Buttons -->
-              <div id="contact-buttons" class="pointer-events-auto absolute right-8 xl:right-12 2xl:right-14 top-[30%] xl:top-[32%] z-25 flex flex-col w-[240px] xl:w-[270px] select-none will-change-transform">
+              <div id="contact-buttons" class="pointer-events-auto absolute right-8 xl:right-12 2xl:right-14 top-[30%] xl:top-[32%] z-25 flex flex-col w-[240px] xl:w-[270px] select-none will-change-transform" style="perspective: 1000px;">
                 <span class="block text-xs font-mono tracking-[0.25em] text-[#717885] uppercase font-bold mb-4 text-left">
                   CONTACT ME
                 </span>
@@ -1532,7 +1537,7 @@
             </div>
 
             <!-- Mobile & Tablet Responsive Layout -->
-            <div class="block lg:hidden relative w-full h-full pt-10 pb-20 px-5 sm:px-8 overflow-y-auto pointer-events-auto">
+            <div id="contact-mobile-content" class="block lg:hidden relative w-full h-full pt-10 pb-20 px-5 sm:px-8 overflow-y-auto pointer-events-auto">
               <div class="flex flex-col items-center text-center mb-5">
                 <span class="text-[#81FF28] font-bold text-3xl" style="font-family: 'Caveat', cursive;">Let's</span>
                 <h2 class="font-heading font-black text-[#FFFFFF] text-2xl tracking-tight uppercase">

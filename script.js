@@ -1559,11 +1559,13 @@
 
   initSkillsAndProjects();
 
-  // 8. Section 4: Contact Section & Background Reveal (Exact match to ContactSection.tsx)
+  // 8. Section 4: Contact Section & Background Reveal with Doodle Brush Animation
   const initContactSection = () => {
     const contact = document.getElementById('contact');
     const container = document.getElementById('contact-container');
+    const cardSurface = document.getElementById('contact-card-surface');
     const shadowShell = document.getElementById('contact-shadow-shell');
+    const silhouetteBorder = document.getElementById('contact-silhouette-border');
     const path = document.getElementById('contact-brush-path');
     const darkFill = document.getElementById('contact-dark-fill');
     const contour = document.getElementById('contact-contour');
@@ -1573,139 +1575,342 @@
     const headRight = document.getElementById('contact-headline-right');
     const nav = document.getElementById('contact-nav');
     const support = document.getElementById('contact-support');
+    const buttonsHeader = document.querySelector('#contact-buttons > span');
+    const pillBtns = document.querySelectorAll('.contact-pill-btn');
     const marquee = document.getElementById('contact-marquee');
     const backToTop = document.getElementById('back-to-top-btn');
+    const mobileContent = document.getElementById('contact-mobile-content');
 
     if (!contact) return;
 
-    // 1. Initial state
-    const totalLength = path?.getTotalLength ? path.getTotalLength() : 12000;
+    const measuredLength = (path && path.getTotalLength && path.getTotalLength() > 100)
+      ? Math.ceil(path.getTotalLength())
+      : 25000;
+    const totalLength = Math.max(measuredLength, 25000);
+
+    // 1. Initial State: Card surface starts white silhouette with light border, brush ready
     if (path) {
       gsap.set(path, {
-        strokeDasharray: totalLength,
-        strokeDashoffset: totalLength,
-        strokeWidth: 25
+        strokeDasharray: totalLength + 500,
+        strokeDashoffset: totalLength + 500,
+        strokeWidth: 28,
+        opacity: 1
       });
     }
 
-    if (darkFill) gsap.set(darkFill, { opacity: 1 });
+    if (darkFill) gsap.set(darkFill, { opacity: 0 });
     if (contour) gsap.set(contour, { opacity: 0 });
     if (innerBorder) gsap.set(innerBorder, { opacity: 0 });
-    if (shadowShell) gsap.set(shadowShell, { opacity: 1 });
-    if (headLeft) gsap.set(headLeft, { autoAlpha: 0 });
-    if (headRight) gsap.set(headRight, { autoAlpha: 0 });
-    if (character) gsap.set(character, { autoAlpha: 0 });
-    if (nav) gsap.set(nav.querySelectorAll('a'), { autoAlpha: 0 });
-    if (support) gsap.set(support, { autoAlpha: 0 });
-    gsap.set('.contact-pill-btn', { autoAlpha: 0 });
-    if (marquee) gsap.set(marquee, { autoAlpha: 0 });
-    if (backToTop) gsap.set(backToTop, { autoAlpha: 0 });
+    if (silhouetteBorder) gsap.set(silhouetteBorder, { opacity: 1 });
+    if (cardSurface) gsap.set(cardSurface, { backgroundColor: '#ffffff' });
 
-    // 3. Master Section 2 Doodle Brush Animation inside the Contact Container Box
+    // 2. Initial State: All content elements hidden with custom starting transforms
+    if (character) gsap.set(character, { autoAlpha: 0, y: 110, scale: 0.84, filter: 'blur(14px)' });
+    if (headLeft) {
+      gsap.set(headLeft, { autoAlpha: 0, y: -35, x: -30, filter: 'blur(14px)' });
+      const badge = headLeft.querySelector('span[style*="Caveat"]');
+      if (badge) gsap.set(badge, { autoAlpha: 0, scale: 0.25, rotation: -28 });
+    }
+    if (headRight) gsap.set(headRight, { autoAlpha: 0, y: -35, x: 30, filter: 'blur(14px)' });
+    if (nav) {
+      const navLabel = nav.querySelector('span');
+      if (navLabel) gsap.set(navLabel, { autoAlpha: 0, letterSpacing: '0.45em', x: -20 });
+      gsap.set(nav.querySelectorAll('a'), { autoAlpha: 0, x: -45, filter: 'blur(8px)' });
+    }
+    if (support) gsap.set(support, { autoAlpha: 0, y: 35, filter: 'blur(10px)' });
+    if (buttonsHeader) gsap.set(buttonsHeader, { autoAlpha: 0, letterSpacing: '0.45em', x: 20 });
+    if (pillBtns && pillBtns.length > 0) {
+      gsap.set(pillBtns, { autoAlpha: 0, x: 70, rotateY: 22, rotateZ: 2, scale: 0.88 });
+    }
+    if (marquee) gsap.set(marquee, { autoAlpha: 0, scaleX: 0, transformOrigin: 'center center' });
+    if (backToTop) gsap.set(backToTop, { autoAlpha: 0, scale: 0.2, y: 35 });
+    if (mobileContent) gsap.set(mobileContent, { autoAlpha: 0, y: 35 });
+
+    // 3. Master Timeline
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container || contact,
-        start: 'top 78%',
+        start: 'top 75%',
         toggleActions: 'play none none none'
       }
     });
+    window._contactTL = tl;
 
-    // Phase A: Doodle brush sweeps across the container box and swells
-    if (shadowShell) {
-      tl.to(shadowShell, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
-    }
-
+    // =========================================================
+    // STEP 1: DOODLE BRUSH DRAWS AND FLOODS THE CARD SILHOUETTE
+    // (Card is displayed first, exactly matching Section 2 behavior)
+    // =========================================================
     if (path) {
-      tl.to(path, { strokeDashoffset: 0, duration: 0.7, ease: 'power1.inOut' }, 0);
-      tl.to(path, { strokeWidth: 6500, duration: 0.65, ease: 'power2.inOut' }, 0.22);
+      // Brush stroke sweeps dynamically across the sculpted card shape
+      tl.to(
+        path,
+        {
+          strokeDashoffset: 0,
+          duration: 0.65,
+          ease: 'power2.inOut'
+        },
+        0.0
+      );
+
+      // Brush stroke swells massively to flood every corner with dark #16181b
+      tl.to(
+        path,
+        {
+          strokeWidth: 6800,
+          duration: 0.58,
+          ease: 'power3.inOut'
+        },
+        0.24
+      );
     }
 
+    // As the brush stroke expands, darkFill locks in solid #16181b
     if (darkFill) {
-      tl.to(darkFill, { opacity: 1, duration: 0.35, ease: 'power2.out' }, 0.55);
+      tl.to(
+        darkFill,
+        {
+          opacity: 1,
+          duration: 0.24,
+          ease: 'power2.out',
+          onComplete: () => {
+            if (cardSurface) gsap.set(cardSurface, { backgroundColor: '#16181b' });
+          }
+        },
+        0.65
+      );
     }
 
-    if (contour) {
-      tl.to(contour, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.62);
-    }
-    if (innerBorder) {
-      tl.to(innerBorder, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.62);
+    if (silhouetteBorder) {
+      tl.to(silhouetteBorder, { opacity: 0, duration: 0.35 }, 0.60);
     }
 
-    // Phase B: Content reveals smoothly
-    // Central character rises and grounds into position at 0.68 (duration: 0.85, ease: 'power3.out')
-    if (character) {
-      tl.fromTo(
-        character,
-        { autoAlpha: 0, y: 40 },
-        { autoAlpha: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+    // Inner border, contour lines, and card shadow bloom
+    if (shadowShell) {
+      tl.to(
+        shadowShell,
+        {
+          filter: 'drop-shadow(0 14px 34px rgba(0, 0, 0, 0.22))',
+          duration: 0.45,
+          ease: 'power2.out'
+        },
         0.68
       );
     }
 
-    // Headlines entrance with blur focus
+    if (contour) {
+      tl.to(contour, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.72);
+    }
+    if (innerBorder) {
+      tl.to(innerBorder, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.72);
+    }
+
+    // =========================================================
+    // STEP 2: DISPLAY CONTENT WITH UNIQUE, MODERN ANIMATIONS
+    // (Begins at cardReady = 0.82s once the card is fully displayed)
+    // =========================================================
+    const cardReady = 0.82;
+
+    // 1. Central Character: 3D Grounding & Rise into position
+    if (character) {
+      tl.to(
+        character,
+        {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
+          clearProps: 'filter',
+          duration: 0.95,
+          ease: 'power3.out'
+        },
+        cardReady
+      );
+    }
+
+    // 2. Headlines: Kinetic Split Typography & Blur Focus
     if (headLeft) {
-      tl.fromTo(
+      const badge = headLeft.querySelector('span[style*="Caveat"]');
+      if (badge) {
+        tl.to(
+          badge,
+          {
+            autoAlpha: 1,
+            scale: 1,
+            rotation: -9,
+            duration: 0.65,
+            ease: 'back.out(2.2)'
+          },
+          cardReady + 0.08
+        );
+      }
+
+      tl.to(
         headLeft,
-        { autoAlpha: 0, y: 22, filter: 'blur(5px)' },
-        { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' },
-        0.74
+        {
+          autoAlpha: 1,
+          y: 0,
+          x: 0,
+          filter: 'blur(0px)',
+          clearProps: 'filter',
+          duration: 0.85,
+          ease: 'power4.out'
+        },
+        cardReady + 0.12
       );
     }
 
     if (headRight) {
-      tl.fromTo(
+      tl.to(
         headRight,
-        { autoAlpha: 0, y: 22, filter: 'blur(5px)' },
-        { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' },
-        0.78
+        {
+          autoAlpha: 1,
+          y: 0,
+          x: 0,
+          filter: 'blur(0px)',
+          clearProps: 'filter',
+          duration: 0.85,
+          ease: 'power4.out'
+        },
+        cardReady + 0.16
       );
     }
 
+    // 3. Navigation: PAGES tag expansion + staggered magnetic reveal
     if (nav) {
-      tl.fromTo(
+      const navLabel = nav.querySelector('span');
+      if (navLabel) {
+        tl.to(
+          navLabel,
+          {
+            autoAlpha: 1,
+            letterSpacing: '0.25em',
+            x: 0,
+            duration: 0.55,
+            ease: 'power2.out'
+          },
+          cardReady + 0.22
+        );
+      }
+
+      tl.to(
         nav.querySelectorAll('a'),
-        { autoAlpha: 0, x: -18 },
-        { autoAlpha: 1, x: 0, stagger: 0.05, duration: 0.55, ease: 'power2.out' },
-        0.82
+        {
+          autoAlpha: 1,
+          x: 0,
+          filter: 'blur(0px)',
+          clearProps: 'filter',
+          stagger: 0.07,
+          duration: 0.65,
+          ease: 'power3.out'
+        },
+        cardReady + 0.28
       );
     }
 
+    // 4. Supporting Text: Fluid vertical slide-up
     if (support) {
-      tl.fromTo(
+      tl.to(
         support,
-        { autoAlpha: 0, y: 18 },
-        { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-        0.86
+        {
+          autoAlpha: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          clearProps: 'filter',
+          duration: 0.75,
+          ease: 'power2.out'
+        },
+        cardReady + 0.35
       );
     }
 
-    // Right contact pill buttons stagger
-    tl.fromTo(
-      '.contact-pill-btn',
-      { autoAlpha: 0, x: 28, scale: 0.95 },
-      { autoAlpha: 1, x: 0, scale: 1, stagger: 0.06, duration: 0.6, ease: 'back.out(1.4)' },
-      0.90
-    );
+    // 5. Contact Pill Buttons: 3D Perspective Stagger & Spring Snap
+    if (buttonsHeader) {
+      tl.to(
+        buttonsHeader,
+        {
+          autoAlpha: 1,
+          letterSpacing: '0.25em',
+          x: 0,
+          duration: 0.55,
+          ease: 'power2.out'
+        },
+        cardReady + 0.24
+      );
+    }
 
-    // Marquee bar slides in and loops behind character
+    if (pillBtns && pillBtns.length > 0) {
+      tl.to(
+        pillBtns,
+        {
+          autoAlpha: 1,
+          x: 0,
+          rotateY: 0,
+          rotateZ: 0,
+          scale: 1,
+          clearProps: 'transform',
+          stagger: 0.07,
+          duration: 0.60,
+          ease: 'back.out(1.8)'
+        },
+        cardReady + 0.22
+      );
+    }
+
+    // 6. Marquee Ticker: Aperture Horizon Unroll
     if (marquee) {
-      tl.fromTo(
+      tl.to(
         marquee,
-        { autoAlpha: 0, y: 14 },
-        { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-        0.94
+        {
+          autoAlpha: 1,
+          scaleX: 1,
+          duration: 0.72,
+          ease: 'power3.inOut'
+        },
+        cardReady + 0.42
       );
     }
 
-    // Back to Top button appears
+    // 7. Back to Top Button: Elastic Spring Pop into Notch
     if (backToTop) {
-      tl.fromTo(
+      tl.to(
         backToTop,
-        { autoAlpha: 0, scale: 0.8 },
-        { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(1.5)' },
-        0.98
+        {
+          autoAlpha: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.65,
+          ease: 'back.out(2.4)'
+        },
+        cardReady + 0.52
       );
     }
+
+    // 8. Mobile Content Layer
+    if (mobileContent) {
+      tl.to(
+        mobileContent,
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          ease: 'power2.out'
+        },
+        cardReady + 0.20
+      );
+    }
+
+    // 9. Post-entrance: Ambient Floating Levitation on Character
+    tl.call(() => {
+      if (character) {
+        gsap.to(character, {
+          y: -9,
+          duration: 2.8,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1
+        });
+      }
+    }, null, cardReady + 1.0);
 
     // Floating Words Mouse Parallax with Silky GSAP Inertia
     const floatingWordsContainer = document.getElementById('floating-words-container');
