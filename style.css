@@ -651,36 +651,6 @@ html.lenis, html.lenis body {
   align-items: center;
 }
 
-#contact-character {
-  height: 100%;
-  width: auto;
-  aspect-ratio: 903 / 1024;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  pointer-events: auto;
-}
-
-#contact-unicorn-scene {
-  height: 100%;
-  width: 100%;
-  aspect-ratio: 903 / 1024;
-  position: relative;
-  pointer-events: auto;
-  cursor: pointer;
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.68));
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-#contact-unicorn-scene canvas {
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
-  pointer-events: auto;
-}
-
 /* Contact 3D Atmospheric Floating Words */
 .contact-word {
   position: absolute;
@@ -1937,4 +1907,22 @@ html.lenis, html.lenis body {
 .split-line-mask {
   overflow: visible !important;
   display: block;
+}
+
+/* ========================================================================= */
+/* CUSTOM SCROLLBAR FOR CONTACT POPUP MODAL                                  */
+/* ========================================================================= */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(129, 255, 40, 0.5);
 }

@@ -2006,72 +2006,6 @@
   };
   initContactSection();
 
-  // =========================================================================
-  // 8.1 CONTACT CHARACTER UNICORN STUDIO SHADER (Exact Parity with Portfolio11)
-  // Interactive 3D Perspective Tilt Matrix + Ping-Pong Trail + Reveal with Chromatic Aberration
-  // Source: https://github.com/Saboo24/Portfolio11 & https://saboo24.github.io/Portfolio11/
-  // =========================================================================
-  const initContactUnicornHover = async () => {
-    const container = document.getElementById('contact-unicorn-scene');
-    const fallback = document.getElementById('contact-character-photo');
-    if (!container) return;
-
-    try {
-      // 1. Ensure UnicornStudio SDK is loaded
-      if (typeof UnicornStudio === 'undefined' || !UnicornStudio.addScene) {
-        await new Promise((resolve, reject) => {
-          if (typeof UnicornStudio !== 'undefined' && UnicornStudio.addScene) return resolve();
-          const script = document.createElement('script');
-          script.src = 'unicornStudio.umd.js';
-          script.onload = () => resolve();
-          script.onerror = () => {
-            const cdnScript = document.createElement('script');
-            cdnScript.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@2.1.3/dist/unicornStudio.umd.js';
-            cdnScript.onload = () => resolve();
-            cdnScript.onerror = reject;
-            document.head.appendChild(cdnScript);
-          };
-          document.head.appendChild(script);
-        });
-      }
-
-      if (typeof UnicornStudio === 'undefined' || !UnicornStudio.addScene) {
-        throw new Error('UnicornStudio SDK could not be loaded');
-      }
-
-      // 2. Fetch Project Configuration (derived from Portfolio11 kLM3mnmLXnAU5DHNMhUN)
-      const res = await fetch('src/contact_unicorn_project.json');
-      if (!res.ok) throw new Error('Failed to load contact_unicorn_project.json: ' + res.status);
-      const projectData = await res.json();
-
-      // 3. Inject into JSON script tag for synchronous DOM parsing by UnicornStudio
-      let scriptTag = document.getElementById('unicorn-contact-data');
-      if (!scriptTag) {
-        scriptTag = document.createElement('script');
-        scriptTag.id = 'unicorn-contact-data';
-        scriptTag.type = 'application/json';
-        document.body.appendChild(scriptTag);
-      }
-      scriptTag.textContent = JSON.stringify(projectData);
-
-      // 4. Initialize the Scene with 1:1 parameters
-      const scene = await UnicornStudio.addScene({
-        filePath: 'unicorn-contact-data',
-        element: container,
-        dpi: window.devicePixelRatio ? Math.min(window.devicePixelRatio, 1.5) : 1.5,
-        scale: 1,
-        production: false
-      });
-
-      window._contactUnicornScene = scene;
-      console.log('[Contact] Unicorn Studio scene initialized successfully (exact Portfolio11 parity)');
-    } catch (err) {
-      console.warn('[Contact] Unicorn Studio initialization failed, falling back to static photo:', err);
-      if (fallback) fallback.classList.remove('hidden');
-    }
-  };
-  initContactUnicornHover();
-
   // 9. Smooth Anchor Link Scrolling
   const handleAnchorClick = (e) => {
     const target = e.target.closest('a');
@@ -2084,6 +2018,11 @@
         duration: 1.4,
         easing: (t) => (t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2)
       };
+
+      if (href === '#contact-popup-modal' || target.hasAttribute('data-open-contact-modal')) {
+        if (window.openContactModal) window.openContactModal(e);
+        return;
+      }
 
       if (href === '#hero' || href === '#') {
         if (lenis) lenis.scrollTo(0, scrollOptions);
@@ -2153,4 +2092,90 @@
       }
     });
   }
+
+  // 11. Contact & Social Channels Modal Window
+  function initContactModal() {
+    const modal = document.getElementById('contact-popup-modal');
+    const container = document.getElementById('contact-modal-container');
+    const backdrop = document.getElementById('contact-modal-backdrop');
+    const closeBtn = document.getElementById('contact-modal-close');
+    if (!modal || !container) return;
+
+    window.openContactModal = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+      container.classList.remove('scale-95');
+      container.classList.add('scale-100');
+      document.body.style.overflow = 'hidden';
+      if (typeof lenis !== 'undefined' && lenis && lenis.stop) lenis.stop();
+    };
+
+    window.closeContactModal = function() {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100', 'pointer-events-auto');
+      container.classList.add('scale-95');
+      container.classList.remove('scale-100');
+      document.body.style.overflow = '';
+      if (typeof lenis !== 'undefined' && lenis && lenis.start) lenis.start();
+    };
+
+    // Desktop & Mobile button triggers
+    const otherContacts = document.getElementById('btn-other-contacts');
+    const otherContactsMobile = document.getElementById('btn-other-contacts-mobile');
+    if (otherContacts) otherContacts.addEventListener('click', window.openContactModal);
+    if (otherContactsMobile) otherContactsMobile.addEventListener('click', window.openContactModal);
+
+    // Any button with [data-open-contact-modal]
+    document.querySelectorAll('[data-open-contact-modal]').forEach(el => {
+      el.addEventListener('click', window.openContactModal);
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', window.closeContactModal);
+    if (backdrop) backdrop.addEventListener('click', window.closeContactModal);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('pointer-events-none')) {
+        window.closeContactModal();
+      }
+    });
+
+    // Clipboard Copy Helper
+    window.copyToClipboard = function(text, btnId) {
+      const showFeedback = () => {
+        const btn = document.getElementById(btnId);
+        if (!btn) return;
+        const origText = btn.textContent;
+        btn.textContent = 'Copied! ✓';
+        btn.classList.add('!bg-[#81FF28]', '!text-black');
+        setTimeout(() => {
+          btn.textContent = origText;
+          btn.classList.remove('!bg-[#81FF28]', '!text-black');
+        }, 1800);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showFeedback).catch(() => {
+          fallbackCopy(text, showFeedback);
+        });
+      } else {
+        fallbackCopy(text, showFeedback);
+      }
+    };
+
+    function fallbackCopy(text, cb) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        if (cb) cb();
+      } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  }
+  initContactModal();
 })();
