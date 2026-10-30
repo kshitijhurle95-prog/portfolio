@@ -433,153 +433,208 @@
       });
     }, exitStart);
 
-    // Instant atomic handoff at destination arrival - ZERO duplicate text, ZERO flash/flicker
-    tl.add(() => {
-      if (heroWord) {
-        heroWord.style.visibility = 'visible';
-        heroWord.style.opacity = '1';
+    // Curtis Nguyen Kinetic Text Scrambler (1:1 with https://curtisdesignr.me/)
+    const runCurtisTextScramble = (element, options = {}) => {
+      return new Promise((resolve) => {
+        if (!element) {
+          resolve();
+          return;
+        }
+        const finalColor = options.finalColor || '#000000';
+        const glyphs = options.glyphs || 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#=$%+0123456789';
+        const flickerColors = options.flickerColors || ['#47671E', '#81FF28', finalColor];
+        const originalText = element.getAttribute('data-scramble-text') || element.textContent.trim();
+        element.setAttribute('data-scramble-text', originalText);
+        if (!originalText) {
+          resolve();
+          return;
+        }
+
+        element.innerHTML = '';
+        element.style.visibility = 'visible';
+        element.style.opacity = '1';
+
+        const spanList = [];
+        for (let i = 0; i < originalText.length; i++) {
+          const char = originalText[i];
+          const span = document.createElement('span');
+          span.className = 'hero-kinetic-char';
+          span.textContent = char;
+          span.style.display = 'inline-block';
+          element.appendChild(span);
+
+          const w = span.getBoundingClientRect().width;
+          span.style.width = Math.max(Math.ceil(w), 12) + 'px';
+          span.style.textAlign = 'center';
+
+          spanList.push({
+            span: span,
+            targetChar: char,
+            isSpace: char === ' '
+          });
+        }
+
+        let settledCount = 0;
+        const totalChars = spanList.length;
+
+        spanList.forEach((item, index) => {
+          if (item.isSpace) {
+            settledCount++;
+            if (settledCount >= totalChars) resolve();
+            return;
+          }
+
+          const startDelay = (options.baseDelay || 0) + index * 0.045;
+          const scrambleDuration = options.duration || 0.45;
+          const startTime = performance.now() + startDelay * 1000;
+          const endTime = startTime + scrambleDuration * 1000;
+
+          item.span.style.color = flickerColors[0];
+
+          const interval = setInterval(() => {
+            const now = performance.now();
+            if (now < startTime) {
+              return;
+            }
+            if (now >= endTime) {
+              clearInterval(interval);
+              item.span.textContent = item.targetChar;
+              item.span.style.color = finalColor;
+              settledCount++;
+              if (settledCount >= totalChars) {
+                resolve();
+              }
+              return;
+            }
+
+            const randomChar = glyphs[Math.floor(Math.random() * glyphs.length)];
+            item.span.textContent = randomChar;
+            item.span.style.color = flickerColors[Math.floor(Math.random() * flickerColors.length)];
+          }, 40);
+        });
+      });
+    };
+
+    // Phase 2 Entrance: Display the rest of Hero content AFTER text scrambler settles
+    const revealHeroRestContent = () => {
+      const restTl = gsap.timeline({
+        onComplete: () => {
+          isLoaderComplete = true;
+          document.body.style.overflow = '';
+          if (lenis) lenis.start();
+          initAlejandrohaScrollAnimations();
+        }
+      });
+
+      // 1. Stacked Headline lines mask-slide upward with staggered split line reveal
+      if (heroHeadlineLines.length) {
+        restTl.fromTo(
+          heroHeadlineLines,
+          { opacity: 0, yPercent: 110 },
+          { opacity: 1, yPercent: 0, stagger: 0.08, duration: 0.85, ease: 'power4.out' },
+          0.0
+        );
       }
+
+      // 2. Profile details underneath headline reveal
+      if (heroProfile) {
+        restTl.fromTo(
+          heroProfile,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.75, ease: 'power3.out' },
+          0.15
+        );
+      }
+
+      // 3. Portrait Cutout: Smooth photographic entrance rising from bottom, layered ABOVE typography
+      if (heroPortrait) {
+        restTl.fromTo(
+          heroPortrait,
+          { opacity: 0, y: 55, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 1.10, ease: 'power3.out' },
+          0.20
+        );
+      }
+
+      // 4. Site Header / Navbar becomes visible
+      if (siteHeader) {
+        restTl.add(() => {
+          siteHeader.classList.add('is-visible');
+          siteHeader.style.opacity = '1';
+          siteHeader.style.pointerEvents = 'auto';
+        }, 0.25);
+
+        restTl.to('.header-logo', { opacity: 1, scale: 1, y: 0, duration: 0.75, ease: 'back.out(2)' }, 0.25);
+        restTl.to('.nav-link', { opacity: 1, scale: 1, y: 0, duration: 0.70, stagger: 0.05, ease: 'back.out(2)' }, 0.30);
+        restTl.to('#nav-resume-btn', { opacity: 1, scale: 1, y: 0, duration: 0.75, ease: 'back.out(2.5)' }, 0.40);
+      }
+
+      // 5. Numbered Editorial Markers (01, 02, 03, 04) reveal with staggered entrance
+      if (heroMarkers.length) {
+        restTl.fromTo(
+          heroMarkers,
+          { opacity: 0, y: 24, scale: 0.92 },
+          { opacity: 1, y: 0, scale: 1, stagger: 0.08, duration: 0.75, ease: 'back.out(1.8)' },
+          0.32
+        );
+      }
+
+      // 6. Bottom-left location, statement, and buttons
+      if (heroBottomLeft) {
+        restTl.fromTo(
+          heroBottomLeft,
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+          0.40
+        );
+      }
+
+      // 7. Right-side Hero social circular buttons (GitHub, Gmail, LinkedIn)
+      if (heroSocialLinks) {
+        restTl.fromTo(
+          heroSocialLinks,
+          { opacity: 0, scale: 0.75, y: 20 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.80, ease: 'back.out(2)' },
+          0.45
+        );
+      }
+
+      // 8. Bottom-right scroll prompt
+      if (heroBottomRight) {
+        restTl.fromTo(
+          heroBottomRight,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' },
+          0.50
+        );
+      }
+    };
+
+    // Instant atomic handoff at destination arrival - FIRST text scrambler runs, THEN rest of content reveals
+    tl.add(() => {
       if (word) {
         word.style.opacity = '0';
         word.style.display = 'none';
       }
+      if (curtain) {
+        curtain.style.display = 'none';
+      }
+      if (stage) {
+        stage.style.display = 'none';
+      }
       if (pageLoader) {
         pageLoader.style.display = 'none';
       }
+
+      // FIRST: Display text only with Curtis Nguyen Kinetic Scramble animation
+      Promise.all([
+        runCurtisTextScramble(heroWord, { finalColor: '#000000', baseDelay: 0.0, duration: 0.50 }),
+        runCurtisTextScramble(heroLast, { finalColor: '#81FF28', baseDelay: 0.12, duration: 0.50 })
+      ]).then(() => {
+        // AFTER the text scrambler finishes, display the rest of the hero content!
+        revealHeroRestContent();
+      });
     }, exitStart + 1.15);
-
-
-    // Portrait cutout reveals with smooth photographic entrance (Layered ABOVE typography)
-    if (heroPortrait) {
-      tl.fromTo(
-        heroPortrait,
-        { opacity: 0, y: 40, scale: 0.96 },
-        { opacity: 1, y: 0, scale: 1, duration: 1.15, ease: 'power3.out' },
-        exitStart + 0.15
-      );
-    }
-
-    // Surname "HURLE" in vivid neon-lime green reveals directly below "KSHITIJ"
-    if (heroLast) {
-      tl.fromTo(
-        heroLast,
-        { opacity: 0, y: 35 },
-        { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' },
-        exitStart + 0.20
-      );
-    }
-
-    // Upper-Right Headline lines reveal with staggered upward slide
-    if (heroHeadlineLines.length) {
-      tl.fromTo(
-        heroHeadlineLines,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, stagger: 0.07, duration: 0.85, ease: 'power3.out' },
-        exitStart + 0.25
-      );
-    }
-
-    // Profile details underneath headline reveal
-    if (heroProfile) {
-      tl.fromTo(
-        heroProfile,
-        { opacity: 0, x: -15 },
-        { opacity: 1, x: 0, duration: 0.80, ease: 'power3.out' },
-        exitStart + 0.48
-      );
-    }
-
-    // Site Header / Navbar becomes visible
-    if (siteHeader) {
-      tl.add(() => {
-        siteHeader.classList.add('is-visible');
-        siteHeader.style.opacity = '1';
-        siteHeader.style.pointerEvents = 'auto';
-      }, exitStart + 0.25);
-
-      // Brand Logo pops in
-      tl.to(
-        '.header-logo',
-        { opacity: 1, scale: 1, y: 0, duration: 0.80, ease: 'back.out(2)' },
-        exitStart + 0.25
-      );
-
-      // Nav links pop in
-      tl.to(
-        '.nav-link',
-        { opacity: 1, scale: 1, y: 0, duration: 0.75, stagger: 0.06, ease: 'back.out(2)' },
-        exitStart + 0.35
-      );
-
-      // Resume Button pops in
-      tl.to(
-        '#nav-resume-btn',
-        { opacity: 1, scale: 1, y: 0, duration: 0.80, ease: 'back.out(2.5)' },
-        exitStart + 0.50
-      );
-    }
-
-    // Numbered Editorial Markers (01, 02, 03) reveal with staggered entrance
-    if (heroMarkers.length) {
-      tl.fromTo(
-        heroMarkers,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, stagger: 0.08, duration: 0.75, ease: 'power3.out' },
-        exitStart + 0.40
-      );
-    }
-
-    // Bottom-left location & statement
-    if (heroBottomLeft) {
-      tl.fromTo(
-        heroBottomLeft,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' },
-        exitStart + 0.55
-      );
-    }
-
-    // Bottom-right scroll prompt
-    if (heroBottomRight) {
-      tl.fromTo(
-        heroBottomRight,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' },
-        exitStart + 0.60
-      );
-    }
-
-    // Right-side Hero social circular buttons (GitHub, Gmail, LinkedIn)
-    if (heroSocialLinks) {
-      tl.fromTo(
-        heroSocialLinks,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' },
-        exitStart + 0.50
-      );
-    }
-
-    // Clean handoff: remove loader overlay when curtain has fully exited
-    tl.add(() => {
-      if (heroWord) gsap.set(heroWord, { opacity: 1 });
-      if (heroPortrait) {
-        heroPortrait.style.transform = 'none';
-        heroPortrait.style.willChange = 'auto';
-      }
-      if (heroSocialLinks) {
-        heroSocialLinks.style.opacity = '1';
-        heroSocialLinks.style.transform = 'none';
-      }
-      if (siteHeader) {
-        siteHeader.style.opacity = '1';
-        siteHeader.style.pointerEvents = 'auto';
-        gsap.set(['.header-logo', '.nav-link', '#nav-resume-btn'], { opacity: 1, scale: 1, y: 0 });
-      }
-      if (pageLoader) pageLoader.style.display = 'none';
-      if (curtain) curtain.style.display = 'none';
-      if (stage) stage.style.display = 'none';
-      if (word) word.style.display = 'none';
-    }, exitStart + 1.25);
   };
   initPageLoader();
 
@@ -603,30 +658,37 @@
     let currentAppliedTheme = null;
     const checkTheme = () => {
       const headerY = 50;
-      const sections = document.querySelectorAll('[data-theme-section]');
+      const sections = Array.from(document.querySelectorAll('[data-theme-section]'));
       let foundTheme = 'light';
 
-      for (const section of Array.from(sections)) {
+      // Iterate backwards so visually overlapping later sections (e.g. #projects curtain over #skills) take precedence
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
         const rect = section.getBoundingClientRect();
         if (rect.top <= headerY && rect.bottom > headerY) {
-          const t = section.getAttribute('data-theme-section');
-          if (t === 'dark' || t === 'light') {
-            foundTheme = t;
-            break;
+          // Special case for #about which dynamically shifts from light (Section 2) to dark (About Me)
+          if (section.id === 'about') {
+            const aboutWrap = document.getElementById('about-wrap');
+            const isAboutDark = aboutWrap && (parseFloat(window.getComputedStyle(aboutWrap).opacity || aboutWrap.style.opacity || '0') > 0.4 || (window.aboutTransitionProgress && window.aboutTransitionProgress > 0.38));
+            foundTheme = isAboutDark ? 'dark' : 'light';
+          } else {
+            const t = section.getAttribute('data-theme-section');
+            if (t === 'dark' || t === 'light') {
+              foundTheme = t;
+            }
           }
+          break;
         }
       }
 
-      // Check pinned dark skills background
+      // Check pinned dark skills background if active
       const skillsDarkBg = document.getElementById('skills-dark-bg');
-      if (skillsDarkBg) {
+      if (skillsDarkBg && foundTheme === 'light') {
         const rect = skillsDarkBg.getBoundingClientRect();
         if (rect.top <= headerY && rect.bottom > headerY) {
-          const op = parseFloat(window.getComputedStyle(skillsDarkBg).opacity || skillsDarkBg.style.opacity || '1');
+          const op = parseFloat(window.getComputedStyle(skillsDarkBg).opacity || skillsDarkBg.style.opacity || '0');
           if (op > 0.3) {
             foundTheme = 'dark';
-          } else {
-            foundTheme = 'light';
           }
         }
       }
@@ -669,12 +731,65 @@
 
     if (!container || !path) return;
 
-    // Ensure Section 2 character remains completely still with zero hover effects
+    const truthMetaBar = document.getElementById('truth-meta-bar');
+    const truthLines = document.querySelectorAll('.truth-headline-line');
+    const truthDesc = document.getElementById('truth-desc');
+    const truthScribble = truthWrap ? (truthWrap.querySelector('svg[viewBox="0 0 380 24"]') || truthWrap.querySelector('svg.w-\\[300px\\]')) : null;
+
+    // Section 2 Initial Appearance Setup
+    if (truthMetaBar) gsap.set(truthMetaBar, { opacity: 0, x: -30 });
+    if (truthLines.length) {
+      gsap.set(truthLines, {
+        opacity: 0,
+        yPercent: 80,
+        rotationX: -85,
+        transformPerspective: 600,
+        transformOrigin: 'top center'
+      });
+    }
+    if (truthDesc) gsap.set(truthDesc, { opacity: 0, y: 30 });
     if (truthCharacter) {
       truthCharacter.style.pointerEvents = 'none';
       truthCharacter.style.cursor = 'default';
-      gsap.set(truthCharacter, { y: 0, clearProps: 'transform' });
+      gsap.set(truthCharacter, { opacity: 0, x: 120, scale: 0.94 });
     }
+    if (truthScribble) gsap.set(truthScribble, { opacity: 0, scaleX: 0, transformOrigin: 'left center' });
+
+    // Section 2 Scroll Entrance Animation (1:1 with https://alejandroha.com/ 3D character roll & smooth slide-in)
+    ScrollTrigger.create({
+      trigger: container,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        const sec2Tl = gsap.timeline();
+        if (truthMetaBar) {
+          sec2Tl.to(truthMetaBar, { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }, 0);
+        }
+        if (truthLines.length) {
+          sec2Tl.to(
+            truthLines,
+            {
+              opacity: 1,
+              yPercent: 0,
+              rotationX: 0,
+              duration: 0.85,
+              stagger: 0.12,
+              ease: 'power3.out'
+            },
+            0.10
+          );
+        }
+        if (truthScribble) {
+          sec2Tl.to(truthScribble, { opacity: 1, scaleX: 1, duration: 0.65, ease: 'power2.out' }, 0.35);
+        }
+        if (truthDesc) {
+          sec2Tl.to(truthDesc, { opacity: 1, y: 0, duration: 0.70, ease: 'power2.out' }, 0.40);
+        }
+        if (truthCharacter) {
+          sec2Tl.to(truthCharacter, { opacity: 1, x: 0, scale: 1, duration: 1.05, ease: 'power3.out' }, 0.20);
+        }
+      }
+    });
 
     const measuredLength = (path.getTotalLength && path.getTotalLength() > 100) ? Math.ceil(path.getTotalLength()) : 25000;
     const totalLength = Math.max(measuredLength, 22000);
@@ -697,7 +812,7 @@
       gsap.set(aboutPortraitImg, { scale: 1.45, y: -70, opacity: 0, transformOrigin: 'center bottom' });
     }
     if (aboutPortraitBackdrop) {
-      gsap.set(aboutPortraitBackdrop, { scale: 0.35, opacity: 0, transformOrigin: 'center center' });
+      gsap.set(aboutPortraitBackdrop, { scale: 0.45, opacity: 0, transformOrigin: 'center center' });
     }
     if (aboutHandwrittenNote) {
       gsap.set(aboutHandwrittenNote, { opacity: 0, scale: 0.7, y: -12 });
@@ -724,6 +839,7 @@
         anticipatePin: 1,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
+          window.aboutTransitionProgress = self.progress;
           if (!header) return;
           if (self.progress > 0.38) {
             header.classList.add('site-header--dark');
@@ -1149,7 +1265,7 @@
       id: 'skillsPortfolioPin',
       trigger: section,
       start: 'top top',
-      end: () => '+=' + window.innerHeight * 1.0,
+      end: () => '+=' + (window.innerHeight * 2.4),
       pin: true,
       pinSpacing: false,
       anticipatePin: 1,
@@ -1263,7 +1379,7 @@
         gsap.set(list, { y: 0 });
         data.forEach(({ visual, imageWrap }, i) => {
           gsap.set(visual, { overflow: 'hidden' });
-          gsap.set(imageWrap, { left: '30%', width: i === 0 ? '70%' : '0%' });
+          gsap.set(imageWrap, { left: '32%', width: i === 0 ? '68%' : '0%' });
         });
 
         const tl = gsap.timeline({
@@ -1287,10 +1403,10 @@
           tl.to(curr.visual, { height: 0, duration: 1, ease: 'power1.inOut' }, idx);
           // 2. Current image slides / shrinks away
           tl.to(curr.imageWrap, { left: '100%', width: '0%', duration: 1, ease: 'power1.inOut' }, idx);
-          // 3. Next image expands into view
+          // 3. Next image expands into view (Enlarged 68% showcase width)
           tl.to(next.imageWrap, {
-            left: '30%',
-            width: '70%',
+            left: '32%',
+            width: '68%',
             duration: 1,
             ease: 'power1.inOut',
             onStart: () => {

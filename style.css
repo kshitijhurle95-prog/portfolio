@@ -348,6 +348,7 @@ body {
 
 .header-name {
   color: #000000;
+  font-weight: 800 !important;
   transition: color 0.3s ease;
 }
 
@@ -355,7 +356,7 @@ body {
   color: #000000;
   text-decoration: none;
   font-family: 'Space Grotesk', -apple-system, sans-serif;
-  font-weight: 700;
+  font-weight: 800 !important;
   font-size: 0.785rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -379,13 +380,14 @@ body {
 .site-header--dark .header-name,
 .site-header--dark .nav-link {
   color: #FFFFFF !important;
+  font-weight: 800 !important;
 }
 
 .site-header--dark .nav-link:hover {
   color: #81FF28 !important;
 }
 
-/* Header in Light Sections */
+/* Header in Light Sections (Hero, Section 2, Projects, Contact) */
 .site-header--light {
   background: transparent !important;
   background-color: transparent !important;
@@ -396,6 +398,7 @@ body {
 .site-header--light .header-name,
 .site-header--light .nav-link {
   color: #000000 !important;
+  font-weight: 800 !important;
 }
 
 .site-header--light .nav-link:hover {
@@ -1700,19 +1703,20 @@ html.lenis, html.lenis body {
     position: absolute;
     bottom: 2.5rem;
     left: 2.5rem;
-    width: 42%;
-    max-width: 650px;
+    width: 32%;
+    max-width: 480px;
     z-index: 10;
   }
 
   .project-image-wrap {
     position: absolute;
     top: 0;
-    left: 43%;
-    width: 57%;
+    left: 32%;
+    width: 68%;
     height: 100%;
     z-index: 20;
     overflow: hidden;
+    padding: 1rem 1.5rem !important;
   }
 }
 
@@ -1863,14 +1867,14 @@ html.lenis, html.lenis body {
 }
 
 /* ========================================================================= */
-/* REFINED PROJECT IMAGE FRAME (BALANCED & PROPORTIONED)                     */
+/* ENLARGED PROJECT IMAGE FRAME (MAXIMIZED SHOWCASE DISPLAY)                */
 /* ========================================================================= */
 .project-image-wrap {
-  padding: 1.5rem !important;
+  padding: 1rem 1.5rem !important;
 }
 
 .project-image-frame {
-  max-width: 850px !important;
+  max-width: 1040px !important;
   width: 100% !important;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.14), 0 4px 12px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.10);
@@ -1885,6 +1889,20 @@ html.lenis, html.lenis body {
 .project-image-frame img {
   width: 100% !important;
   height: auto !important;
-  max-height: 72vh !important;
+  max-height: 80vh !important;
   object-fit: contain !important;
+}
+
+/* ========================================================================= */
+/* KINETIC SCRAMBLER & LINE MASK REVEAL (CURTIS DESIGNR / ALEJANDRO HA)      */
+/* ========================================================================= */
+.hero-kinetic-char {
+  display: inline-block;
+  will-change: transform, opacity, color;
+  text-align: center;
+}
+
+.split-line-mask {
+  overflow: hidden;
+  display: block;
 }
