@@ -1642,6 +1642,8 @@ html.lenis, html.lenis body {
   position: relative;
   overflow: hidden;
   background-color: #FFFFFF;
+  padding-top: 80px;
+  box-sizing: border-box;
 }
 
 .projects-list {
@@ -1702,21 +1704,21 @@ html.lenis, html.lenis body {
   .project-description-col {
     position: absolute;
     bottom: 2.5rem;
-    left: 2.5rem;
-    width: 32%;
-    max-width: 480px;
+    left: 2rem;
+    width: 28%;
+    max-width: 420px;
     z-index: 10;
   }
 
   .project-image-wrap {
     position: absolute;
     top: 0;
-    left: 32%;
-    width: 68%;
+    left: 28%;
+    width: 72%;
     height: 100%;
     z-index: 20;
     overflow: hidden;
-    padding: 1rem 1.5rem !important;
+    padding: 0.5rem 1rem !important;
   }
 }
 
@@ -1870,11 +1872,11 @@ html.lenis, html.lenis body {
 /* ENLARGED PROJECT IMAGE FRAME (MAXIMIZED SHOWCASE DISPLAY)                */
 /* ========================================================================= */
 .project-image-wrap {
-  padding: 1rem 1.5rem !important;
+  padding: 0.5rem 1rem !important;
 }
 
 .project-image-frame {
-  max-width: 1040px !important;
+  max-width: 1180px !important;
   width: 100% !important;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.14), 0 4px 12px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.10);
@@ -1889,7 +1891,7 @@ html.lenis, html.lenis body {
 .project-image-frame img {
   width: 100% !important;
   height: auto !important;
-  max-height: 80vh !important;
+  max-height: 84vh !important;
   object-fit: contain !important;
 }
 
@@ -1903,6 +1905,6 @@ html.lenis, html.lenis body {
 }
 
 .split-line-mask {
-  overflow: hidden;
+  overflow: visible !important;
   display: block;
 }

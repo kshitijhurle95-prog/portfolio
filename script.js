@@ -433,89 +433,7 @@
       });
     }, exitStart);
 
-    // Curtis Nguyen Kinetic Text Scrambler (1:1 with https://curtisdesignr.me/)
-    const runCurtisTextScramble = (element, options = {}) => {
-      return new Promise((resolve) => {
-        if (!element) {
-          resolve();
-          return;
-        }
-        const finalColor = options.finalColor || '#000000';
-        const glyphs = options.glyphs || 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#=$%+0123456789';
-        const flickerColors = options.flickerColors || ['#47671E', '#81FF28', finalColor];
-        const originalText = element.getAttribute('data-scramble-text') || element.textContent.trim();
-        element.setAttribute('data-scramble-text', originalText);
-        if (!originalText) {
-          resolve();
-          return;
-        }
-
-        element.innerHTML = '';
-        element.style.visibility = 'visible';
-        element.style.opacity = '1';
-
-        const spanList = [];
-        for (let i = 0; i < originalText.length; i++) {
-          const char = originalText[i];
-          const span = document.createElement('span');
-          span.className = 'hero-kinetic-char';
-          span.textContent = char;
-          span.style.display = 'inline-block';
-          element.appendChild(span);
-
-          const w = span.getBoundingClientRect().width;
-          span.style.width = Math.max(Math.ceil(w), 12) + 'px';
-          span.style.textAlign = 'center';
-
-          spanList.push({
-            span: span,
-            targetChar: char,
-            isSpace: char === ' '
-          });
-        }
-
-        let settledCount = 0;
-        const totalChars = spanList.length;
-
-        spanList.forEach((item, index) => {
-          if (item.isSpace) {
-            settledCount++;
-            if (settledCount >= totalChars) resolve();
-            return;
-          }
-
-          const startDelay = (options.baseDelay || 0) + index * 0.045;
-          const scrambleDuration = options.duration || 0.45;
-          const startTime = performance.now() + startDelay * 1000;
-          const endTime = startTime + scrambleDuration * 1000;
-
-          item.span.style.color = flickerColors[0];
-
-          const interval = setInterval(() => {
-            const now = performance.now();
-            if (now < startTime) {
-              return;
-            }
-            if (now >= endTime) {
-              clearInterval(interval);
-              item.span.textContent = item.targetChar;
-              item.span.style.color = finalColor;
-              settledCount++;
-              if (settledCount >= totalChars) {
-                resolve();
-              }
-              return;
-            }
-
-            const randomChar = glyphs[Math.floor(Math.random() * glyphs.length)];
-            item.span.textContent = randomChar;
-            item.span.style.color = flickerColors[Math.floor(Math.random() * flickerColors.length)];
-          }, 40);
-        });
-      });
-    };
-
-    // Phase 2 Entrance: Display the rest of Hero content AFTER text scrambler settles
+    // Phase 2 Entrance: Display the rest of Hero content smoothly
     const revealHeroRestContent = () => {
       const restTl = gsap.timeline({
         onComplete: () => {
@@ -526,12 +444,12 @@
         }
       });
 
-      // 1. Stacked Headline lines mask-slide upward with staggered split line reveal
+      // 1. Stacked Headline lines reveal smoothly with unclipped crystal clarity
       if (heroHeadlineLines.length) {
         restTl.fromTo(
           heroHeadlineLines,
-          { opacity: 0, yPercent: 110 },
-          { opacity: 1, yPercent: 0, stagger: 0.08, duration: 0.85, ease: 'power4.out' },
+          { opacity: 0, y: 22 },
+          { opacity: 1, y: 0, stagger: 0.08, duration: 0.85, ease: 'power3.out' },
           0.0
         );
       }
@@ -542,7 +460,7 @@
           heroProfile,
           { opacity: 0, x: -20 },
           { opacity: 1, x: 0, duration: 0.75, ease: 'power3.out' },
-          0.15
+          0.12
         );
       }
 
@@ -550,9 +468,9 @@
       if (heroPortrait) {
         restTl.fromTo(
           heroPortrait,
-          { opacity: 0, y: 55, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 1.10, ease: 'power3.out' },
-          0.20
+          { opacity: 0, y: 45, scale: 0.98 },
+          { opacity: 1, y: 0, scale: 1, duration: 1.05, ease: 'power3.out' },
+          0.18
         );
       }
 
@@ -562,20 +480,20 @@
           siteHeader.classList.add('is-visible');
           siteHeader.style.opacity = '1';
           siteHeader.style.pointerEvents = 'auto';
-        }, 0.25);
+        }, 0.22);
 
-        restTl.to('.header-logo', { opacity: 1, scale: 1, y: 0, duration: 0.75, ease: 'back.out(2)' }, 0.25);
-        restTl.to('.nav-link', { opacity: 1, scale: 1, y: 0, duration: 0.70, stagger: 0.05, ease: 'back.out(2)' }, 0.30);
-        restTl.to('#nav-resume-btn', { opacity: 1, scale: 1, y: 0, duration: 0.75, ease: 'back.out(2.5)' }, 0.40);
+        restTl.to('.header-logo', { opacity: 1, scale: 1, y: 0, duration: 0.75, ease: 'back.out(2)' }, 0.22);
+        restTl.to('.nav-link', { opacity: 1, scale: 1, y: 0, duration: 0.70, stagger: 0.05, ease: 'back.out(2)' }, 0.28);
+        restTl.to('#nav-resume-btn', { opacity: 1, scale: 1, y: 0, duration: 0.75, ease: 'back.out(2.5)' }, 0.38);
       }
 
       // 5. Numbered Editorial Markers (01, 02, 03, 04) reveal with staggered entrance
       if (heroMarkers.length) {
         restTl.fromTo(
           heroMarkers,
-          { opacity: 0, y: 24, scale: 0.92 },
+          { opacity: 0, y: 22, scale: 0.94 },
           { opacity: 1, y: 0, scale: 1, stagger: 0.08, duration: 0.75, ease: 'back.out(1.8)' },
-          0.32
+          0.28
         );
       }
 
@@ -583,9 +501,9 @@
       if (heroBottomLeft) {
         restTl.fromTo(
           heroBottomLeft,
-          { opacity: 0, y: 25 },
+          { opacity: 0, y: 22 },
           { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
-          0.40
+          0.35
         );
       }
 
@@ -593,9 +511,9 @@
       if (heroSocialLinks) {
         restTl.fromTo(
           heroSocialLinks,
-          { opacity: 0, scale: 0.75, y: 20 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.80, ease: 'back.out(2)' },
-          0.45
+          { opacity: 0, scale: 0.8, y: 15 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.75, ease: 'back.out(2)' },
+          0.40
         );
       }
 
@@ -603,15 +521,22 @@
       if (heroBottomRight) {
         restTl.fromTo(
           heroBottomRight,
-          { opacity: 0, y: 20 },
+          { opacity: 0, y: 18 },
           { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' },
-          0.50
+          0.45
         );
       }
     };
 
-    // Instant atomic handoff at destination arrival - FIRST text scrambler runs, THEN rest of content reveals
+    // Instant atomic handoff at destination arrival:
+    // "KSHITIJ" translates from loader screen as normal (no animation, no glitch),
+    // and "HURLE" smoothly appears right below it!
     tl.add(() => {
+      if (heroWord) {
+        heroWord.style.visibility = 'visible';
+        heroWord.style.opacity = '1';
+        heroWord.textContent = 'KSHITIJ';
+      }
       if (word) {
         word.style.opacity = '0';
         word.style.display = 'none';
@@ -626,14 +551,19 @@
         pageLoader.style.display = 'none';
       }
 
-      // FIRST: Display text only with Curtis Nguyen Kinetic Scramble animation
-      Promise.all([
-        runCurtisTextScramble(heroWord, { finalColor: '#000000', baseDelay: 0.0, duration: 0.50 }),
-        runCurtisTextScramble(heroLast, { finalColor: '#81FF28', baseDelay: 0.12, duration: 0.50 })
-      ]).then(() => {
-        // AFTER the text scrambler finishes, display the rest of the hero content!
-        revealHeroRestContent();
-      });
+      // Smooth appearance for HURLE only (fade in + gentle glide up)
+      if (heroLast) {
+        heroLast.style.visibility = 'visible';
+        heroLast.textContent = 'HURLE';
+        gsap.fromTo(
+          heroLast,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.85, ease: 'power2.out' }
+        );
+      }
+
+      // Display the rest of hero content smoothly
+      revealHeroRestContent();
     }, exitStart + 1.15);
   };
   initPageLoader();
@@ -1265,7 +1195,7 @@
       id: 'skillsPortfolioPin',
       trigger: section,
       start: 'top top',
-      end: () => '+=' + (window.innerHeight * 2.4),
+      end: () => '+=' + (window.innerHeight * 1.5),
       pin: true,
       pinSpacing: false,
       anticipatePin: 1,
@@ -1366,10 +1296,11 @@
     const mm = gsap.matchMedia();
 
     mm.add('(min-width: 992px)', () => {
+      const navH = 80;
       const calcHeights = () => {
         data.forEach(({ row, visual }, i) => {
           const prevRowH = i > 0 ? data[i - 1].row.offsetHeight : 0;
-          const targetH = window.innerHeight - row.offsetHeight - prevRowH;
+          const targetH = window.innerHeight - navH - row.offsetHeight - prevRowH;
           gsap.set(visual, { height: Math.max(targetH, 0) });
         });
       };
@@ -1379,7 +1310,7 @@
         gsap.set(list, { y: 0 });
         data.forEach(({ visual, imageWrap }, i) => {
           gsap.set(visual, { overflow: 'hidden' });
-          gsap.set(imageWrap, { left: '32%', width: i === 0 ? '68%' : '0%' });
+          gsap.set(imageWrap, { left: '28%', width: i === 0 ? '72%' : '0%' });
         });
 
         const tl = gsap.timeline({
@@ -1403,10 +1334,10 @@
           tl.to(curr.visual, { height: 0, duration: 1, ease: 'power1.inOut' }, idx);
           // 2. Current image slides / shrinks away
           tl.to(curr.imageWrap, { left: '100%', width: '0%', duration: 1, ease: 'power1.inOut' }, idx);
-          // 3. Next image expands into view (Enlarged 68% showcase width)
+          // 3. Next image expands into view (Enlarged 72% showcase width)
           tl.to(next.imageWrap, {
-            left: '32%',
-            width: '68%',
+            left: '28%',
+            width: '72%',
             duration: 1,
             ease: 'power1.inOut',
             onStart: () => {
@@ -1737,7 +1668,7 @@
     if (cardSurface) gsap.set(cardSurface, { backgroundColor: '#ffffff' });
 
     // 2. Initial State: All content elements hidden with custom starting transforms
-    if (character) gsap.set(character, { autoAlpha: 0, y: 110, scale: 0.84, filter: 'blur(14px)' });
+    if (character) gsap.set(character, { autoAlpha: 0, y: 0, scale: 1, clearProps: 'transform,filter' });
     if (headLeft) {
       gsap.set(headLeft, { autoAlpha: 0, y: -35, x: -30, filter: 'blur(14px)' });
       const badge = headLeft.querySelector('span[style*="Caveat"]');
@@ -1842,20 +1773,16 @@
     // =========================================================
     const cardReady = 0.82;
 
-    // 1. Central Character: 3D Grounding & Rise into position
+    // 1. Central Character: Smooth, clean, faster fade-in (no translating effect)
     if (character) {
       tl.to(
         character,
         {
           autoAlpha: 1,
-          y: 0,
-          scale: 1,
-          filter: 'blur(0px)',
-          clearProps: 'filter',
-          duration: 0.95,
-          ease: 'power3.out'
+          duration: 0.50,
+          ease: 'power2.out'
         },
-        cardReady
+        0.40
       );
     }
 

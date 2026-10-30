@@ -202,12 +202,12 @@
 
       <!-- ==================== 4. UPPER-RIGHT HEADLINE & PROFILE DETAILS ==================== -->
       <div id="hero-right-stage" class="absolute right-[clamp(1.5rem,3.8vw,3.5rem)] top-[clamp(65px,9.8vh,105px)] z-25 flex flex-col items-start text-left max-w-[360px] sm:max-w-[420px] xl:max-w-[480px] select-none will-change-transform">
-        <!-- Stacked Headline with Split Line Overflow Masks -->
-        <h2 class="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-[3rem] xl:text-[3.65rem] leading-[0.91] tracking-tight uppercase text-[#000000]">
-          <span class="split-line-mask block"><span class="hero-headline-line block">BUILDING</span></span>
-          <span class="split-line-mask block"><span class="hero-headline-line block"><span class="text-[#81FF28]">IDEAS</span> INTO</span></span>
-          <span class="split-line-mask block"><span class="hero-headline-line block">USEFUL</span></span>
-          <span class="split-line-mask block"><span class="hero-headline-line block">EXPERIENCES</span></span>
+        <!-- Stacked Headline (Full Height, Unclipped & Crystal Clear) -->
+        <h2 class="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-[3rem] xl:text-[3.65rem] leading-[1.02] tracking-tight uppercase text-[#000000] overflow-visible">
+          <span class="hero-headline-line block">BUILDING</span>
+          <span class="hero-headline-line block"><span class="text-[#81FF28]">IDEAS</span> INTO</span>
+          <span class="hero-headline-line block">USEFUL</span>
+          <span class="hero-headline-line block">EXPERIENCES</span>
         </h2>
 
         <!-- Profile Details with Green Left Border (Increased Font Size) -->
@@ -452,7 +452,7 @@
         </div>
 
         <!-- Stage C: About Section Detailed View -->
-        <section id="about-wrap" class="absolute inset-0 w-full h-full flex flex-col justify-between items-center z-30 pointer-events-auto opacity-0 pt-4 sm:pt-6 lg:pt-8 pb-0 px-4 sm:px-8 lg:px-12 xl:px-16" style="background-color: #050609;">
+        <section id="about-wrap" class="absolute inset-0 w-full h-full flex flex-col justify-between items-center z-30 pointer-events-auto opacity-0 pt-20 sm:pt-22 lg:pt-24 pb-2 px-4 sm:px-8 lg:px-12 xl:px-16" style="background-color: #050609;">
           <!-- Top Meta Bar: [ 02 / 05 ]  ABOUT ME -->
           <div id="about-top-bar" class="w-full max-w-[1720px] mx-auto mb-2 sm:mb-3 lg:mb-4 flex items-center justify-between will-change-transform">
             <div class="flex items-center gap-2 font-mono text-xs sm:text-sm font-bold tracking-widest uppercase">
@@ -466,8 +466,8 @@
           <!-- Main 3-Column Grid -->
           <div id="about-content-stage" class="w-full max-w-[1720px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6 xl:gap-8 relative z-10 flex-1 min-h-0 pt-2 pb-0 h-full">
             
-            <!-- LEFT COLUMN (Shifted Up to Original Balanced Position & Larger Content) -->
-            <div id="about-left-col" class="lg:col-span-4 flex flex-col justify-center gap-4 sm:gap-5 self-center my-auto will-change-transform pr-2 lg:pr-6 xl:pr-8">
+            <!-- LEFT COLUMN (Shifted Up to Original Balanced Position & Larger Content, Layered in Front of Backdrop) -->
+            <div id="about-left-col" class="lg:col-span-4 flex flex-col justify-center gap-4 sm:gap-5 self-center my-auto will-change-transform pr-2 lg:pr-6 xl:pr-8 relative z-30">
               <div class="flex flex-col items-start leading-[0.80] select-none">
                 <h2 class="font-hero-poster text-[#FFFFFF] text-6xl sm:text-7xl lg:text-[5.8rem] xl:text-[7.2rem] leading-[0.80] tracking-tight uppercase m-0">
                   ABOUT
@@ -537,32 +537,32 @@
               </div>
             </div>
 
-            <!-- CENTER COLUMN: PORTRAIT COMPOSITION (Prominent Sizing, Bottom Aligned) -->
-            <div id="about-center-col" class="lg:col-span-4 flex items-end justify-center self-end pb-0 relative min-h-[500px] lg:min-h-[580px] xl:min-h-[660px] h-full select-none">
+            <!-- CENTER COLUMN: PORTRAIT COMPOSITION (Prominent Sizing, Bottom Aligned, Lower Z-Index so Backdrop Stays Strictly Behind Text) -->
+            <div id="about-center-col" class="lg:col-span-4 flex items-end justify-center self-end pb-0 relative min-h-[500px] lg:min-h-[580px] xl:min-h-[660px] h-full select-none z-10">
               <div id="about-center-stage" class="relative w-full max-w-[440px] lg:max-w-[520px] xl:max-w-[580px] 2xl:max-w-[640px] mx-auto flex items-end justify-center pb-0">
                 
-                <!-- Neon Lime Green Circle & Radiating Sketch Lines (Enlarged Backdrop Elements, Prominently Visible Behind Cutout) -->
-                <div id="about-portrait-backdrop" class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 will-change-transform scale-[2.05] lg:scale-[2.4] xl:scale-[2.65] -translate-x-[2%] -translate-y-[2%]">
-                  <svg viewBox="0 0 600 600" fill="none" class="w-[150%] h-[150%] max-w-none overflow-visible">
-                    <circle cx="300" cy="300" r="225" stroke="#161c14" stroke-width="4.5" fill="none" />
-                    <circle cx="300" cy="300" r="225" stroke="#81FF28" stroke-width="2.2" stroke-dasharray="14 10" stroke-linecap="round" fill="none" opacity="0.6" />
-                    <circle cx="300" cy="300" r="175" fill="#81FF28" />
+                <!-- Neon Lime Green Circle & Radiating Sketch Lines (Enlarged Backdrop Elements, Strictly Behind All Text & Content) -->
+                <div id="about-portrait-backdrop" class="absolute inset-0 flex items-center justify-center pointer-events-none -z-1 will-change-transform scale-[2.3] lg:scale-[2.65] xl:scale-[2.9] -translate-x-[2%] -translate-y-[2%]">
+                  <svg viewBox="0 0 600 600" fill="none" class="w-[160%] h-[160%] max-w-none overflow-visible">
+                    <circle cx="300" cy="300" r="255" stroke="#161c14" stroke-width="4.5" fill="none" />
+                    <circle cx="300" cy="300" r="255" stroke="#81FF28" stroke-width="2.2" stroke-dasharray="14 10" stroke-linecap="round" fill="none" opacity="0.6" />
+                    <circle cx="300" cy="300" r="195" fill="#81FF28" />
 
-                    <!-- Radiating Doodle Lines (Extended Outward for Maximum Halo Visibility) -->
-                    <path d="M 125 230 L 25 190" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
-                    <path d="M 100 280 L 5 260" stroke="#81FF28" stroke-width="4.5" stroke-linecap="round" />
-                    <path d="M 110 335 L 20 355" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
-                    <path d="M 135 390 L 50 440" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
-                    <path d="M 165 180 L 85 120" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
+                    <!-- Radiating Doodle Lines (Extended Outward for Maximum Halo Visibility While Staying Behind Text) -->
+                    <path d="M 115 225 L 15 185" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
+                    <path d="M 90 280 L 0 260" stroke="#81FF28" stroke-width="4.5" stroke-linecap="round" />
+                    <path d="M 100 340 L 10 360" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
+                    <path d="M 125 400 L 40 450" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
+                    <path d="M 155 170 L 75 110" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
 
-                    <path d="M 475 230 L 575 190" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
-                    <path d="M 500 280 L 595 260" stroke="#81FF28" stroke-width="4.5" stroke-linecap="round" />
-                    <path d="M 490 335 L 580 355" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
-                    <path d="M 465 390 L 550 440" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
-                    <path d="M 435 180 L 515 120" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
+                    <path d="M 485 225 L 585 185" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
+                    <path d="M 510 280 L 600 260" stroke="#81FF28" stroke-width="4.5" stroke-linecap="round" />
+                    <path d="M 500 340 L 590 360" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
+                    <path d="M 475 400 L 560 450" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
+                    <path d="M 445 170 L 525 110" stroke="#81FF28" stroke-width="4" stroke-linecap="round" />
 
-                    <path d="M 430 110 C 490 90, 540 135, 515 185" stroke="#81FF28" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 5" fill="none" opacity="0.85" />
-                    <path d="M 450 90 C 515 70, 565 120, 535 180" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.75" />
+                    <path d="M 440 100 C 505 80, 560 125, 530 180" stroke="#81FF28" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 5" fill="none" opacity="0.85" />
+                    <path d="M 460 80 C 530 60, 580 110, 550 175" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.75" />
                   </svg>
                 </div>
 
@@ -588,8 +588,8 @@
               </div>
             </div>
 
-            <!-- RIGHT COLUMN (Shifted Up to Original Balanced Position & Larger Content) -->
-            <div id="about-right-col" class="lg:col-span-4 flex flex-col justify-center gap-4 sm:gap-5 pl-2 lg:pl-6 xl:pl-10 self-center my-auto will-change-transform">
+            <!-- RIGHT COLUMN (Shifted Up to Original Balanced Position & Larger Content, Layered in Front of Backdrop) -->
+            <div id="about-right-col" class="lg:col-span-4 flex flex-col justify-center gap-4 sm:gap-5 pl-2 lg:pl-6 xl:pl-10 self-center my-auto will-change-transform relative z-30">
               <div class="flex items-center gap-2.5 font-mono text-xs sm:text-sm font-bold tracking-widest uppercase">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#81FF28]"></span>
                 <span class="w-5 h-[2px] bg-[#81FF28]"></span>
@@ -649,7 +649,7 @@
       id="skills"
       data-cursor-theme="dark"
       data-theme-section="dark"
-      class="relative w-full min-h-screen lg:h-screen bg-[#050609] text-white flex flex-col justify-center py-6 sm:py-8 lg:py-10 px-4 sm:px-8 lg:px-12 select-none overflow-hidden z-20"
+      class="relative w-full min-h-screen lg:h-screen bg-[#050609] text-white flex flex-col justify-between pt-20 sm:pt-22 lg:pt-24 pb-6 sm:pb-8 px-4 sm:px-8 lg:px-12 select-none overflow-hidden z-20"
       style="background-color: #050609;"
     >
       <!-- Top Meta Bar: [ 03 / 05 ]  MY SKILLS  &  ● TECH STACK -->
@@ -1009,7 +1009,7 @@
     </section>
 
     <!-- Skills Scroll Duration Spacer: Provides dedicated reading hold phase before Portfolio curtain begins -->
-    <div id="skills-scroll-spacer" class="w-full pointer-events-none" style="height: 140vh;"></div>
+    <div id="skills-scroll-spacer" class="w-full pointer-events-none" style="height: 50vh;"></div>
 
   <section
     id="projects"
