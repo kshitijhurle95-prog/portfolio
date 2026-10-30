@@ -2006,6 +2006,335 @@
   };
   initContactSection();
 
+  // =========================================================================
+  // 8.1 CONTACT CHARACTER LANDO NORRIS (https://landonorris.com/) 1:1 SHADER
+  // Arched visor wave transition with luminous #81FF28 edge spark,
+  // interactive cursor ripple, and GSAP expo.inOut tweening.
+  // =========================================================================
+  const initContactLandoHoverShader = () => {
+    const canvas = document.getElementById('contact-character-canvas');
+    const container = document.getElementById('contact-character');
+    if (!canvas || !container) return;
+
+    const gl = canvas.getContext('webgl', {
+      alpha: true,
+      premultipliedAlpha: false,
+      antialias: true
+    }) || canvas.getContext('experimental-webgl');
+
+    if (!gl) {
+      console.warn('WebGL not supported, falling back to static photo');
+      const fallback = document.getElementById('contact-character-photo');
+      if (fallback) fallback.classList.remove('hidden');
+      return;
+    }
+
+    // Vertex Shader: full-screen quad mapped to texture coords [0, 1]
+    const vsSource = `
+      attribute vec2 a_position;
+      varying vec2 vUv;
+      void main() {
+        vUv = a_position * 0.5 + 0.5;
+        vUv.y = 1.0 - vUv.y;
+        gl_Position = vec4(a_position, 0.0, 1.0);
+      }
+    `;
+
+    // Fragment Shader: 1:1 parity with Lando Norris hover shader
+    const fsSource = `
+      precision highp float;
+      varying vec2 vUv;
+
+      uniform sampler2D u_texPhoto;
+      uniform sampler2D u_texCharacter;
+      uniform float u_progress;
+      uniform float u_time;
+      uniform vec2 u_mouse;
+      uniform float u_mouseIntensity;
+
+      const float PI = 3.141592653589793;
+
+      void main() {
+        // Lando Norris Arched Visor Wave formula
+        float wave = sin(vUv.x * PI) * sin(u_progress * PI) * 0.22;
+        float hoverTransition = vUv.y + wave;
+        
+        float threshold = 1.0 - hoverTransition;
+        float edgeDist = threshold - u_progress;
+        
+        // Organic transition blend
+        float reveal = smoothstep(0.045, -0.045, edgeDist);
+        
+        // Luminous electric neon green (#81FF28) highlight spark on wave front
+        float spark = smoothstep(0.038, 0.0, abs(edgeDist)) * sin(u_progress * PI);
+        
+        // Interactive tactile liquid ripple when moving mouse over portrait
+        vec2 delta = vUv - u_mouse;
+        float dist = length(delta);
+        float ripple = exp(-dist * 8.5) * sin(dist * 24.0 - u_time * 4.5) * u_mouseIntensity * 0.012;
+        vec2 rippleUv = delta * ripple;
+        
+        vec2 uvPhoto = clamp(vUv + rippleUv * (1.0 - reveal), 0.0, 1.0);
+        vec2 uvChar = clamp(vUv + rippleUv * reveal, 0.0, 1.0);
+        
+        vec4 colPhoto = texture2D(u_texPhoto, uvPhoto);
+        vec4 colChar = texture2D(u_texCharacter, uvChar);
+        
+        vec4 mixedColor = mix(colPhoto, colChar, reveal);
+        
+        // Add neon green spark highlight along the transition wave front
+        vec3 sparkColor = vec3(0.506, 1.0, 0.157);
+        mixedColor.rgb += sparkColor * (spark * 1.4 * mixedColor.a);
+        
+        gl_FragColor = mixedColor;
+      }
+    `;
+
+    function compileShader(glContext, source, type) {
+      const shader = glContext.createShader(type);
+      glContext.shaderSource(shader, source);
+      glContext.compileShader(shader);
+      if (!glContext.getShaderParameter(shader, glContext.COMPILE_STATUS)) {
+        console.error('Shader compilation failed:', glContext.getShaderInfoLog(shader));
+        glContext.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    }
+
+    const vertexShader = compileShader(gl, vsSource, gl.VERTEX_SHADER);
+    const fragmentShader = compileShader(gl, fsSource, gl.FRAGMENT_SHADER);
+    if (!vertexShader || !fragmentShader) return;
+
+    const program = gl.createProgram();
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.linkProgram(program);
+
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.error('Program linking failed:', gl.getProgramInfoLog(program));
+      return;
+    }
+
+    gl.useProgram(program);
+
+    // Fullscreen quad geometry
+    const positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([
+        -1.0, -1.0,
+         1.0, -1.0,
+        -1.0,  1.0,
+        -1.0,  1.0,
+         1.0, -1.0,
+         1.0,  1.0
+      ]),
+      gl.STATIC_DRAW
+    );
+
+    const aPositionLoc = gl.getAttribLocation(program, 'a_position');
+    gl.enableVertexAttribArray(aPositionLoc);
+    gl.vertexAttribPointer(aPositionLoc, 2, gl.FLOAT, false, 0, 0);
+
+    // Uniform locations
+    const uProgressLoc = gl.getUniformLocation(program, 'u_progress');
+    const uTimeLoc = gl.getUniformLocation(program, 'u_time');
+    const uMouseLoc = gl.getUniformLocation(program, 'u_mouse');
+    const uMouseIntensityLoc = gl.getUniformLocation(program, 'u_mouseIntensity');
+    const uTexPhotoLoc = gl.getUniformLocation(program, 'u_texPhoto');
+    const uTexCharLoc = gl.getUniformLocation(program, 'u_texCharacter');
+
+    gl.uniform1i(uTexPhotoLoc, 0);
+    gl.uniform1i(uTexCharLoc, 1);
+
+    function createTexture(glContext, url, unit, onLoaded) {
+      const texture = glContext.createTexture();
+      glContext.activeTexture(glContext.TEXTURE0 + unit);
+      glContext.bindTexture(glContext.TEXTURE_2D, texture);
+
+      // Temporary 1x1 transparent placeholder
+      glContext.texImage2D(
+        glContext.TEXTURE_2D,
+        0,
+        glContext.RGBA,
+        1,
+        1,
+        0,
+        glContext.RGBA,
+        glContext.UNSIGNED_BYTE,
+        new Uint8Array([0, 0, 0, 0])
+      );
+
+      glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_WRAP_S, glContext.CLAMP_TO_EDGE);
+      glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_WRAP_T, glContext.CLAMP_TO_EDGE);
+      glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_MIN_FILTER, glContext.LINEAR);
+      glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_MAG_FILTER, glContext.LINEAR);
+
+      const image = new Image();
+      image.crossOrigin = 'anonymous';
+      image.onload = () => {
+        glContext.activeTexture(glContext.TEXTURE0 + unit);
+        glContext.bindTexture(glContext.TEXTURE_2D, texture);
+        glContext.pixelStorei(glContext.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+        glContext.texImage2D(
+          glContext.TEXTURE_2D,
+          0,
+          glContext.RGBA,
+          glContext.RGBA,
+          glContext.UNSIGNED_BYTE,
+          image
+        );
+        if (onLoaded) onLoaded(image);
+      };
+      image.src = url;
+      return texture;
+    }
+
+    let texturesLoaded = 0;
+    const onTextureLoad = () => {
+      texturesLoaded++;
+      if (texturesLoaded >= 2) {
+        resizeCanvas();
+        requestRender();
+      }
+    };
+
+    createTexture(gl, 'src/kshitij_photo_contact.png', 0, onTextureLoad);
+    createTexture(gl, 'src/kshitij_character_contact.png', 1, onTextureLoad);
+
+    const resizeCanvas = () => {
+      const parent = container.parentElement;
+      const targetH = parent ? parent.clientHeight : container.clientHeight || 600;
+      const targetW = targetH * (903 / 1024);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.style.height = targetH + 'px';
+      canvas.style.width = targetW + 'px';
+
+      const pixelW = Math.round(targetW * dpr);
+      const pixelH = Math.round(targetH * dpr);
+
+      if (canvas.width !== pixelW || canvas.height !== pixelH) {
+        canvas.width = pixelW;
+        canvas.height = pixelH;
+        gl.viewport(0, 0, pixelW, pixelH);
+      }
+      renderFrame();
+    };
+
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+
+    // State tracking
+    const animState = {
+      progress: 0.0,
+      mouseIntensity: 0.0,
+      mouseX: 0.5,
+      mouseY: 0.5,
+      isHovered: false
+    };
+
+    let isLoopRunning = false;
+    const startTime = performance.now();
+
+    function renderFrame() {
+      if (texturesLoaded < 2) return;
+      gl.clearColor(0, 0, 0, 0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+
+      gl.useProgram(program);
+      gl.uniform1f(uProgressLoc, animState.progress);
+      gl.uniform1f(uTimeLoc, (performance.now() - startTime) * 0.001);
+      gl.uniform2f(uMouseLoc, animState.mouseX, animState.mouseY);
+      gl.uniform1f(uMouseIntensityLoc, animState.mouseIntensity);
+
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+    }
+
+    function loop() {
+      renderFrame();
+      const isProgressing = (animState.progress > 0.001 && animState.progress < 0.999);
+      if (animState.isHovered || isProgressing || animState.mouseIntensity > 0.01) {
+        requestAnimationFrame(loop);
+      } else {
+        isLoopRunning = false;
+        renderFrame();
+      }
+    }
+
+    function startLoop() {
+      if (!isLoopRunning) {
+        isLoopRunning = true;
+        requestAnimationFrame(loop);
+      }
+    }
+
+    function requestRender() {
+      startLoop();
+    }
+
+    // Hover Event Handlers: 1:1 Lando Norris GSAP expo.inOut timing
+    container.addEventListener('mouseenter', () => {
+      animState.isHovered = true;
+      gsap.to(animState, {
+        progress: 1.0,
+        duration: 1.5,
+        ease: 'expo.inOut',
+        overwrite: true,
+        onUpdate: requestRender
+      });
+      gsap.to(animState, {
+        mouseIntensity: 1.0,
+        duration: 0.4,
+        ease: 'power2.out',
+        overwrite: 'auto',
+        onUpdate: requestRender
+      });
+      startLoop();
+    });
+
+    container.addEventListener('mouseleave', () => {
+      animState.isHovered = false;
+      gsap.to(animState, {
+        progress: 0.0,
+        duration: 1.0,
+        ease: 'expo.inOut',
+        overwrite: true,
+        onUpdate: requestRender
+      });
+      gsap.to(animState, {
+        mouseIntensity: 0.0,
+        duration: 0.6,
+        ease: 'power2.out',
+        overwrite: 'auto',
+        onUpdate: requestRender
+      });
+      startLoop();
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      animState.mouseX = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0.0), 1.0);
+      animState.mouseY = Math.min(Math.max((e.clientY - rect.top) / rect.height, 0.0), 1.0);
+      requestRender();
+    });
+
+    // Initial sizing
+    setTimeout(resizeCanvas, 50);
+
+    // Global hook for automated test telemetry
+    window._contactShader = {
+      animState,
+      renderFrame,
+      canvas,
+      gl,
+      container
+    };
+  };
+  initContactLandoHoverShader();
+
   // 9. Smooth Anchor Link Scrolling
   const handleAnchorClick = (e) => {
     const target = e.target.closest('a');

@@ -1809,13 +1809,25 @@
 
               <!-- Central Character Image: Strictly Clipped INSIDE Contact Card Surface -->
               <div id="contact-character-anchor" class="absolute left-1/2 -translate-x-1/2 bottom-0 z-15 pointer-events-auto flex flex-col items-center h-[91%]" style="left: 50% !important; transform: translateX(-50%) !important;">
-                <div id="contact-character" class="h-full w-auto flex flex-col items-center will-change-transform group transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                <div id="contact-character" class="relative h-full w-auto flex flex-col items-center will-change-transform group cursor-pointer select-none">
+                  <canvas
+                    id="contact-character-canvas"
+                    class="h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.68)] select-none pointer-events-auto block transition-transform duration-500 hover:scale-[1.02]"
+                  ></canvas>
                   <img
+                    id="contact-character-photo"
+                    src="src/kshitij_photo_contact.png"
+                    alt="Kshitij Hurle Photo"
+                    class="hidden h-full w-auto max-w-none object-contain object-bottom select-none pointer-events-auto"
+                    loading="eager"
+                  />
+                  <img
+                    id="contact-character-alt"
                     src="src/kshitij_character_contact.png"
                     alt="Kshitij Hurle Character"
-                    class="h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.68)] select-none pointer-events-auto"
+                    class="hidden h-full w-auto max-w-none object-contain object-bottom select-none pointer-events-auto"
                     loading="eager"
-                  >
+                  />
                 </div>
               </div>
             </div>
