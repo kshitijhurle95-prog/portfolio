@@ -739,7 +739,7 @@
       gsap.set(aboutWrap, { opacity: 0, pointerEvents: 'none' });
     }
     if (aboutPortraitImg) {
-      gsap.set(aboutPortraitImg, { scale: 1.45, y: -70, opacity: 0, transformOrigin: 'center bottom' });
+      gsap.set(aboutPortraitImg, { scale: 1.50, y: -70, opacity: 0, transformOrigin: 'center bottom' });
     }
     if (aboutPortraitBackdrop) {
       gsap.set(aboutPortraitBackdrop, { scale: 0.45, opacity: 0, transformOrigin: 'center center' });
@@ -763,7 +763,7 @@
         id: 'aboutTransitionPin',
         trigger: container,
         start: 'top top',
-        end: () => '+=' + (window.innerHeight * 2.8),
+        end: () => '+=' + (window.innerHeight * 3.4),
         scrub: 1.0,
         pin: true,
         anticipatePin: 1,
@@ -834,12 +834,12 @@
     }
 
     if (aboutPortraitImg) {
-      // 1. Appears first in bigger size (scale: 1.45)
+      // 1. Appears first in bigger size (scale: 1.50)
       tl.to(
         aboutPortraitImg,
         {
           opacity: 1,
-          scale: 1.45,
+          scale: 1.50,
           y: -70,
           duration: 0.10,
           ease: 'power2.out'
@@ -847,12 +847,12 @@
         0.42
       );
 
-      // 2. Just when the rest of content appears at 0.52, translate the image with the SAME bigger size (scale: 1.45) down to y: 0 so its bottom matches the about section!
+      // 2. Just when the rest of content appears at 0.52, translate the image with the SAME bigger size (scale: 1.50) down to y: 0 so its bottom matches the about section!
       tl.to(
         aboutPortraitImg,
         {
           y: 0,
-          scale: 1.45,
+          scale: 1.50,
           duration: 0.24,
           ease: 'power2.out'
         },
